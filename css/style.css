@@ -1,0 +1,680 @@
+/* =========================================================
+   Crumbs After Class
+   Shared external stylesheet used by all pages of the website
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=DM+Serif+Display&family=Caveat:wght@700&display=swap");
+
+/* ---------- Colour palette (reference) ----------
+   Vanilla Cream    #FFF7E6   Page background
+   Blush Pink       #F7C8D3   Secondary surfaces and hover states
+   Rosewood         #B46A72   Buttons, links and headings
+   Sage             #A8B58A   Accents
+   Misty Sky        #A9B7C6   "Pending" status
+   Midnight Lagoon  #2D3A47   Body text and footer
+
+   Shadows use Midnight Lagoon (45, 58, 71) with transparency
+   instead of black, giving a softer result on light backgrounds.
+   ------------------------------------------------ */
+
+/* ---------- Base styles ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #FFF7E6;
+    color: #2D3A47;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-weight: normal;
+    color: #B46A72;
+    line-height: 1.15;
+}
+
+h1 { font-size: 3.4rem; margin: 0 0 1rem; }
+h2 { font-size: 2.2rem; margin: 0 0 0.4rem; }
+h3 { font-size: 1.35rem; margin: 0.9rem 0 0.4rem; }
+
+a {
+    color: #B46A72;
+}
+
+img {
+    display: block;
+}
+
+main section {
+    padding: 4.5rem 6%;
+}
+
+/* Introductory line displayed below each section heading */
+.section-intro {
+    margin: 0 0 2.25rem;
+    color: #2D3A47;
+    opacity: 0.8;
+}
+
+/* Visible focus outline for keyboard navigation (accessibility) */
+a:focus {
+    outline: 3px solid #B46A72;
+    outline-offset: 3px;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+    display: inline-block;
+    padding: 0.8em 2em;
+    background-color: #B46A72;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border: 2px solid #B46A72;
+    border-radius: 30px;
+    box-shadow: 0 6px 14px rgba(180, 106, 114, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+/* Hover state: the button is raised slightly */
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(180, 106, 114, 0.45);
+}
+
+/* Active state: the button is pressed down while clicked */
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(180, 106, 114, 0.3);
+}
+
+/* ---------- Header and navigation (Flexbox) ---------- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.9rem 6%;
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 72px;
+    height: 72px;
+}
+
+.brand-name {
+    margin-left: 0.75rem;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.5rem;
+    color: #B46A72;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    margin-left: 0.4rem;
+}
+
+.main-nav a {
+    display: block;
+    padding: 0.5em 1em;
+    color: #2D3A47;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+}
+
+.main-nav a:hover {
+    background-color: #F7C8D3;
+}
+
+/* Highlights the link of the current page */
+.main-nav a.active {
+    background-color: #B46A72;
+    color: #FFFFFF;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(180, 106, 114, 0.35);
+}
+
+/* ---------- Page banner (used at the top of every page except Home) ---------- */
+/* The selector "main section.page-banner" has a higher specificity than
+   "main section", so this padding overrides the default section padding */
+main section.page-banner {
+    padding: 1.5rem 6% 6.5rem;
+    background-color: #F7C8D3;
+    /* Decorative club stamp, partially visible at the top-right corner */
+    background-image: url("../images/stamp-hero.png");
+    background-repeat: no-repeat;
+    background-size: 620px;
+    background-position: right -150px top -110px;
+}
+
+.breadcrumb {
+    margin: 0 0 2.5rem;
+    font-size: 0.9rem;
+}
+
+.page-banner h1 {
+    margin: 0 0 0.5rem;
+}
+
+.page-intro {
+    width: 680px;
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+/* Handwritten-style note placed beside the page heading */
+.page-note {
+    display: inline-block;
+    margin-left: 1.25rem;
+    vertical-align: middle;
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #FFF7E6;
+    text-shadow: 3px 3px 0 #B46A72;
+    transform: rotate(-6deg);
+}
+
+/* ---------- Home hero section (centred column layout using Flexbox, as per the wireframe) ---------- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    background-color: #F7C8D3;
+    /* Decorative club stamp, partially visible at the bottom-left corner
+       (transparency and rotation are applied within the image file) */
+    background-image: url("../images/stamp-hero.png");
+    background-repeat: no-repeat;
+    background-position: left -560px bottom -560px;
+}
+
+.hero-image {
+    width: 760px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 28px;
+    margin: 0.5rem 0 2.75rem;
+    /* A solid Rosewood offset shadow creates a layered effect */
+    box-shadow: 18px 18px 0 #B46A72, 0 18px 40px rgba(45, 58, 71, 0.18);
+}
+
+.hero-text {
+    width: 600px;
+    margin: 0 0 2rem;
+}
+
+/* The hero paragraph is divided into three lines, each styled separately */
+.hero-kicker,
+.hero-script,
+.hero-rest {
+    display: block;
+}
+
+/* Line 1: small capitals with increased letter spacing */
+.hero-kicker {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.18em;
+    color: #B46A72;
+}
+
+/* Line 2: large handwritten-style text with a slight rotation */
+.hero-script {
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 5rem;
+    line-height: 1;
+    color: #FFF7E6;
+    text-shadow: 4px 4px 0 #B46A72;
+    transform: rotate(-4deg);
+    margin: 0.2rem 0 1.2rem;
+}
+
+/* Line 3: serif italic text at reduced opacity */
+.hero-rest {
+    width: 520px;
+    margin: 0 auto;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-style: italic;
+    font-size: 1.45rem;
+    line-height: 1.4;
+    color: #2D3A47;
+    opacity: 0.85;
+}
+
+/* ---------- Offering cards (Flexbox layout and hover effect) ---------- */
+/* The negative margin offsets the outer margin of the cards,
+   aligning the first and last card with the section heading */
+.offering-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.offering-card {
+    /* Three cards per row: one third of the row width minus the horizontal margins */
+    flex: 0 0 calc(33.333% - 2rem);
+    margin: 1rem;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 1rem 1rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Hover state: the card is raised and its shadow enlarged */
+.offering-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(45, 58, 71, 0.18);
+}
+
+.offering-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.offering-card p {
+    margin: 0;
+}
+
+/* Additional offering details are hidden by default */
+.offering-details {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    height: 210px;
+    padding: 1.5rem;
+    background-color: #B46A72;
+    color: #FFFFFF;
+    border-radius: 16px;
+}
+
+.offering-details p {
+    margin-bottom: 0.4rem;
+}
+
+/* The details are displayed over the image when the card is hovered */
+.offering-card:hover .offering-details {
+    display: block;
+}
+
+/* ---------- Member reviews section ---------- */
+.reviews {
+    background-color: #FFFFFF;
+}
+
+.review-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.review {
+    flex: 1 1 260px;
+    margin: 1rem;
+    position: relative;
+    background-color: #FFF7E6;
+    border-radius: 22px;
+    padding: 2rem 1.75rem 1.75rem;
+    box-shadow: 0 2px 6px rgba(45, 58, 71, 0.08);
+}
+
+/* Decorative quotation mark positioned on the top edge of each review */
+.review::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.35em;
+    left: 0.4em;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: #A8B58A;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.review-photo {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 2px 6px rgba(45, 58, 71, 0.08);
+}
+
+.review-header p {
+    margin: 0;
+}
+
+.review-name {
+    font-weight: bold;
+}
+
+/* Offering name displayed as a tag */
+.review-header p.review-offering {
+    display: inline-block;
+    margin: 0.15rem 0 0.2rem;
+    padding: 0.15em 0.8em;
+    background-color: #F7C8D3;
+    color: #2D3A47;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.review-rating {
+    font-size: 0.85rem;
+    color: #2D3A47;
+}
+
+/* Star rating characters (&#9733; filled and &#9734; empty) */
+.stars {
+    margin-right: 0.3rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: #B46A72;
+}
+
+.review-text {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Handwritten-style note placed beside a section heading on a light background */
+.section-note {
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: middle;
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #A8B58A;
+    text-shadow: 3px 3px 0 #B46A72;
+    transform: rotate(-6deg);
+}
+
+/* ---------- Extra section: Member Gallery ---------- */
+.gallery {
+    text-align: center;
+    /* Decorative club stamp, partially visible at the top-right corner */
+    background-image: url("../images/stamp-gallery.png");
+    background-repeat: no-repeat;
+    background-position: right -200px top -120px;
+}
+
+.gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    margin: -1rem;
+}
+
+.gallery-list .photo {
+    flex: 0 1 240px;
+    margin: 1rem;
+    background-color: #FFFFFF;
+    padding: 0.75rem 0.75rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Alternating rotation applied to the gallery photos */
+.gallery-list .tilt-left {
+    transform: rotate(-2deg);
+}
+
+.gallery-list .tilt-right {
+    transform: rotate(2deg);
+}
+
+/* Hover state: the photo is straightened and slightly enlarged */
+.gallery-list .photo:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 18px 40px rgba(45, 58, 71, 0.18);
+}
+
+.gallery-list img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.photo-caption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.photo-caption strong {
+    display: block;
+    color: #B46A72;
+}
+
+/* ---------- "See more" feature (fragment link and the :target pseudo-class) ---------- */
+
+/* The additional photos are hidden by default */
+.gallery-more {
+    display: none;
+    margin-top: 2.75rem;
+}
+
+/* The photos are displayed when #more-photos becomes the target of the URL */
+.gallery-more:target {
+    display: block;
+}
+
+.see-more,
+.gallery-more .button {
+    margin-top: 3.75rem;
+}
+
+/* Scroll offset so that the sticky header does not cover the target */
+#gallery,
+#more-photos {
+    scroll-margin-top: 110px;
+}
+
+/* The "See more" button (adjacent sibling) is hidden while the photos are displayed */
+.gallery-more:target + .see-more {
+    display: none;
+}
+
+/* ---------- Club Offerings page ---------- */
+
+/* Content area of the page; no top padding because the search bar overlaps the page banner */
+.catalog {
+    padding: 0 6% 4.5rem;
+}
+
+/* Smaller button variant used in cards and forms */
+.button-small {
+    padding: 0.55em 1.4em;
+    font-size: 0.95rem;
+}
+
+/* Search, skill-level filter and sorting controls (Flexbox layout) */
+.catalog-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 1.25rem 1.5rem;
+    margin-top: -3.5rem;    /* Negative margin places the bar over the edge of the banner */
+    margin-bottom: 2.75rem;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.tool {
+    margin-right: 1.5rem;
+}
+
+/* The search field expands to fill the remaining space */
+.tool-search {
+    flex: 1;
+}
+
+.tool label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #B46A72;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+}
+
+.catalog-tools input[type="search"],
+.catalog-tools select {
+    padding: 0.6em 1em;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #2D3A47;
+    background-color: #FFF7E6;
+    border: 2px solid #F7C8D3;
+    border-radius: 30px;
+}
+
+.catalog-tools input[type="search"] {
+    flex: 1;
+    margin-right: 0.6rem;
+}
+
+.catalog-tools select {
+    width: 180px;
+}
+
+/* Focus state for form controls */
+.catalog-tools input:focus,
+.catalog-tools select:focus {
+    outline: none;
+    border-color: #B46A72;
+}
+
+/* Font family is redefined because input elements do not inherit it */
+.catalog-tools .button {
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* Card content is arranged vertically so the button aligns to the bottom */
+.catalog .offering-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card titles use <h2> to preserve the heading hierarchy after <h1>,
+   and are sized to match the <h3> card titles on the Home page */
+.catalog .offering-card h2 {
+    font-size: 1.35rem;
+    margin: 0.9rem 0 0.4rem;
+}
+
+.offering-price {
+    font-weight: bold;
+    color: #B46A72;
+}
+
+.catalog .offering-card p {
+    margin-bottom: 1.25rem;
+}
+
+.catalog .offering-card .offering-price {
+    margin-bottom: 0.4rem;
+}
+
+.catalog .offering-card .button {
+    margin-top: auto;   /* Aligns the button to the bottom of the card */
+    align-self: flex-start;
+}
+
+/* ---------- Footer (Flexbox layout) ---------- */
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 6% 1.5rem;
+    background-color: #2D3A47;
+    color: #FFF7E6;
+}
+
+.site-footer h2 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem;
+    color: #F7C8D3;
+}
+
+.site-footer a {
+    color: #F7C8D3;
+}
+
+.site-footer p {
+    margin: 0.2rem 0;
+}
+
+/* Both side columns share equal width, keeping the logo centred */
+.footer-contact,
+.footer-social {
+    flex: 1;
+}
+
+.footer-social {
+    text-align: right;
+}
+
+.footer-logo {
+    width: 130px;
+    height: 130px;
+}
+
+.copyright {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #B46A72;
+    font-size: 0.9rem;
+}

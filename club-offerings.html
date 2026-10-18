@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Offerings | Crumbs After Class</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header and navigation bar (shared across all pages) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Crumbs After Class logo" class="brand-logo">
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="club-offerings.html" class="active">Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                <li><a href="manager-dashboard.html">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page banner: breadcrumb, page heading and introduction -->
+        <section class="page-banner">
+            <p class="breadcrumb"><a href="index.html">Home</a> &gt; Offerings</p>
+            <h1>Our Offerings <span class="page-note">fresh every term!</span></h1>
+            <p class="page-intro">Every session we run this term, from a free first loaf to laminated pastry.</p>
+        </section>
+
+        <div class="catalog">
+
+            <!-- Search, filter and sort controls (visual only; functionality to be implemented in Phase 3) -->
+            <form class="catalog-tools" action="club-offerings.html" method="get">
+
+                <div class="tool tool-search">
+                    <label for="search">Search offerings</label>
+                    <div class="search-row">
+                        <input type="search" id="search" name="search">
+                        <input type="submit" value="Search" class="button button-small">
+                    </div>
+                </div>
+
+                <div class="tool">
+                    <label for="level">Skill level</label>
+                    <select id="level" name="level">
+                        <option value="all">All levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <div class="tool">
+                    <label for="sort">Sort by</label>
+                    <select id="sort" name="sort">
+                        <optgroup label="Price">
+                            <option value="price-low">Low to High</option>
+                            <option value="price-high">High to Low</option>
+                        </optgroup>
+                        <optgroup label="Name">
+                            <option value="name-az">A&ndash;Z</option>
+                            <option value="name-za">Z&ndash;A</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+            </form>
+
+            <!-- List of all club offerings (Flexbox layout) -->
+            <div class="offering-list">
+
+                <article class="offering-card">
+                    <img src="images/first-loaf.jpg" alt="A freshly baked round loaf of bread">
+                    <h2>First Loaf</h2>
+                    <p class="offering-price">0 SAR</p>
+                    <p>A free introduction for complete beginners. You leave with your first loaf.</p>
+                    <a href="request-to-join.html" class="button button-small">Request to join</a>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/sourdough.jpg" alt="A sourdough loaf cut open to show its crumb">
+                    <h2>Sourdough from Scratch</h2>
+                    <p class="offering-price">120 SAR</p>
+                    <p>Feed a starter, shape a loaf, and take both home to keep baking.</p>
+                    <a href="request-to-join.html" class="button button-small">Request to join</a>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/cinnamon-rolls.jpg" alt="A tray of glazed cinnamon rolls">
+                    <h2>Cinnamon Roll Night</h2>
+                    <p class="offering-price">80 SAR</p>
+                    <p>Roll, fill, and glaze a tray of cinnamon rolls, then eat them warm together.</p>
+                    <a href="request-to-join.html" class="button button-small">Request to join</a>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/buttercream-flowers.jpg" alt="Piping bags and a cake covered in buttercream flowers">
+                    <h2>Buttercream Flowers</h2>
+                    <p class="offering-price">100 SAR</p>
+                    <p>Learn to pipe roses and blossoms, then decorate a small cake to take home.</p>
+                    <a href="request-to-join.html" class="button button-small">Request to join</a>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/croissant-lab.jpg" alt="Golden croissants cooling on a baking tray">
+                    <h2>Croissant Lab</h2>
+                    <p class="offering-price">150 SAR</p>
+                    <p>Fold butter into dough, build the layers, and bake flaky croissants from scratch.</p>
+                    <a href="request-to-join.html" class="button button-small">Request to join</a>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/cookie-evening.jpg" alt="A plate of freshly baked chocolate chip cookies">
+                    <h2>Cookie Evening</h2>
+                    <p class="offering-price">40 SAR</p>
+                    <p>Three cookie doughs, one oven, and a box of cookies to share with your friends.</p>
+                    <a href="request-to-join.html" class="button button-small">Request to join</a>
+                </article>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (shared across all pages) -->
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+        <img src="images/logo-footer.png" alt="Crumbs After Class logo" class="footer-logo">
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+        <p class="copyright">&copy; 2026 Crumbs After Class</p>
+    </footer>
+
+</body>
+</html>

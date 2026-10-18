@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Crumbs After Class</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header and navigation bar (shared across all pages) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Crumbs After Class logo" class="brand-logo">
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="club-offerings.html">Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                <li><a href="manager-dashboard.html">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero section: club name, video and short description -->
+        <section class="hero">
+            <h1>Crumbs After Class</h1>
+            <!-- Muted, looping video; the poster image is displayed until the video loads -->
+            <video class="hero-image" src="images/hero-video.mp4" poster="images/hero-video-poster.jpg" autoplay muted loop playsinline>
+                <img src="images/hero-baking-session.jpg" alt="Students shaping dough together at a baking session">
+            </video>
+            <p class="hero-text">
+                <span class="hero-kicker">A STUDENT BAKING CLUB FOR THE HOURS</span>
+                <span class="hero-script">after lectures!</span>
+                <span class="hero-rest">Learn a real skill, take home what you bake, and meet people over a shared task.</span>
+            </p>
+            <a href="request-to-join.html" class="button">Join us</a>
+        </section>
+
+        <!-- Offerings section: additional details are displayed on hover -->
+        <section class="offerings">
+            <h2>Our offerings</h2>
+            <p class="section-intro">Hover over a session to see its price, level and length.</p>
+            <div class="offering-list">
+
+                <article class="offering-card">
+                    <img src="images/first-loaf.jpg" alt="A freshly baked round loaf of bread">
+                    <h3>First Loaf</h3>
+                    <p>A free introduction for complete beginners. You leave with your first loaf.</p>
+                    <div class="offering-details">
+                        <p><strong>Price:</strong> 0 SAR</p>
+                        <p><strong>Level:</strong> Beginner</p>
+                        <p><strong>Length:</strong> 2 hours</p>
+                    </div>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/sourdough.jpg" alt="A sourdough loaf cut open to show its crumb">
+                    <h3>Sourdough from Scratch</h3>
+                    <p>Feed a starter, shape a loaf, and take both home to keep baking.</p>
+                    <div class="offering-details">
+                        <p><strong>Price:</strong> 120 SAR</p>
+                        <p><strong>Level:</strong> Intermediate</p>
+                        <p><strong>Length:</strong> 3 hours</p>
+                    </div>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/cinnamon-rolls.jpg" alt="A tray of glazed cinnamon rolls">
+                    <h3>Cinnamon Roll Night</h3>
+                    <p>Roll, fill, and glaze a tray of cinnamon rolls, then eat them warm together.</p>
+                    <div class="offering-details">
+                        <p><strong>Price:</strong> 80 SAR</p>
+                        <p><strong>Level:</strong> Beginner</p>
+                        <p><strong>Length:</strong> 2 hours</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Member reviews section: each review is contained in a div -->
+        <section class="reviews">
+            <h2>Member reviews <span class="section-note">sweet words!</span></h2>
+            <p class="section-intro">What members say after their sessions.</p>
+            <div class="review-list">
+
+                <div class="review">
+                    <div class="review-header">
+                        <img src="images/member-sara.jpg" alt="Photo of Sara" class="review-photo">
+                        <div>
+                            <p class="review-name">Sara A.</p>
+                            <p class="review-offering">First Loaf</p>
+                            <p class="review-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5 / 5</p>
+                        </div>
+                    </div>
+                    <p class="review-text">I had never baked anything before. The instructor explained every step twice, and I went home with a real loaf.</p>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <img src="images/member-reem.jpg" alt="Photo of Reem" class="review-photo">
+                        <div>
+                            <p class="review-name">Reem K.</p>
+                            <p class="review-offering">Cinnamon Roll Night</p>
+                            <p class="review-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span> 4.5 / 5</p>
+                        </div>
+                    </div>
+                    <p class="review-text">The most relaxed two hours of my week. The glaze alone was worth it.</p>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <img src="images/member-huda.jpg" alt="Photo of Huda" class="review-photo">
+                        <div>
+                            <p class="review-name">Huda M.</p>
+                            <p class="review-offering">Sourdough from Scratch</p>
+                            <p class="review-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5 / 5</p>
+                        </div>
+                    </div>
+                    <p class="review-text">My starter is still alive three weeks later. I bake bread every Friday now.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Extra section (proposed in Phase 1): Member Gallery -->
+        <section class="gallery" id="gallery">
+            <h2>Member Gallery</h2>
+            <p class="section-intro">Bakes our members made at home after class.</p>
+            <div class="gallery-list">
+                <div class="photo tilt-left">
+                    <img src="images/gallery-sourdough-loaf.jpg" alt="A member's first sourdough loaf">
+                    <p class="photo-caption"><strong>Lama</strong> Her first sourdough</p>
+                </div>
+                <div class="photo tilt-right">
+                    <img src="images/gallery-cinnamon-rolls.jpg" alt="A tray of homemade cinnamon rolls">
+                    <p class="photo-caption"><strong>Nouf</strong> Cinnamon rolls at home</p>
+                </div>
+                <div class="photo tilt-left">
+                    <img src="images/gallery-decorated-cake.jpg" alt="A cake decorated with piped flowers">
+                    <p class="photo-caption"><strong>Maha</strong> Piped buttercream flowers</p>
+                </div>
+                <div class="photo tilt-right">
+                    <img src="images/gallery-focaccia.jpg" alt="A focaccia topped with herbs and tomatoes">
+                    <p class="photo-caption"><strong>Dana</strong> Herb focaccia</p>
+                </div>
+            </div>
+
+            <!-- Additional photos: hidden until this element becomes the :target -->
+            <div class="gallery-more" id="more-photos">
+                <div class="gallery-list">
+                    <div class="photo tilt-left">
+                        <img src="images/gallery-cookies.jpg" alt="Homemade chocolate chip cookies on a cooling rack">
+                        <p class="photo-caption"><strong>Rana</strong> Chocolate chip cookies</p>
+                    </div>
+                    <div class="photo tilt-right">
+                        <img src="images/gallery-fruit-tart.jpg" alt="A homemade strawberry tart">
+                        <p class="photo-caption"><strong>Joud</strong> Strawberry tart</p>
+                    </div>
+                    <div class="photo tilt-left">
+                        <img src="images/gallery-banana-bread.jpg" alt="A sliced loaf of homemade banana bread">
+                        <p class="photo-caption"><strong>Ghala</strong> Banana bread</p>
+                    </div>
+                    <div class="photo tilt-right">
+                        <img src="images/gallery-croissants.jpg" alt="Homemade croissants on a baking tray">
+                        <p class="photo-caption"><strong>Shahad</strong> Her first croissants</p>
+                    </div>
+                </div>
+                <a href="#gallery" class="button">See less</a>
+            </div>
+
+            <!-- "See more" link to #more-photos, which displays the additional photos -->
+            <a href="#more-photos" class="button see-more">See more</a>
+        </section>
+
+    </main>
+
+    <!-- Footer (shared across all pages) -->
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+        <img src="images/logo-footer.png" alt="Crumbs After Class logo" class="footer-logo">
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+        <p class="copyright">&copy; 2026 Crumbs After Class</p>
+    </footer>
+
+</body>
+</html>
