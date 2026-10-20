@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Crumbs After Class</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header and navigation bar (shared across all pages) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Crumbs After Class logo" class="brand-logo">
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="club-offerings.html">Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                <li><a href="manager-dashboard.html">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page banner: breadcrumb, page heading and introduction -->
+        <section class="page-banner">
+            <p class="breadcrumb"><a href="index.html">Home</a> &gt; Contact Us</p>
+            <h1>Contact Us <span class="page-note">say hello!</span></h1>
+            <p class="page-intro">A question about a session, an idea for a new one, or just want to say hi? Send us a message.</p>
+        </section>
+
+        <!-- Contact form and club information side by side (Flexbox); both overlap the banner -->
+        <div class="contact">
+
+            <!-- The form card is styled like an airmail letter -->
+            <section class="form-card contact-form">
+                <!-- Postage stamp with the club logo in the top-right corner -->
+                <div class="postage">
+                    <img src="images/logo.png" alt="">
+                </div>
+                <h2>Send us a message</h2>
+                <p class="section-intro">We reply within one working day.</p>
+
+                <form class="club-form" action="contact-us.html" method="post">
+                    <div class="form-field">
+                        <label for="contact-name">Full Name</label>
+                        <input type="text" id="contact-name" name="contact-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" name="contact-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Enter subject">
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Write your message here" required></textarea>
+                    </div>
+                    <input type="submit" value="Send" class="button form-submit">
+                </form>
+            </section>
+
+            <!-- Club information card: each line has an icon and its text -->
+            <aside class="club-info">
+                <h2>Club Information</h2>
+                <ul class="info-list">
+                    <li>
+                        <img src="images/icons/location.svg" alt="" class="info-icon">
+                        <p>King Saud University<br>Riyadh, Saudi Arabia</p>
+                    </li>
+                    <li>
+                        <img src="images/icons/email.svg" alt="" class="info-icon">
+                        <p>hello@crumbsafterclass.com</p>
+                    </li>
+                    <li>
+                        <img src="images/icons/phone.svg" alt="" class="info-icon">
+                        <p>011 000 0000</p>
+                    </li>
+                    <li>
+                        <img src="images/icons/clock.svg" alt="" class="info-icon">
+                        <p>Sunday &ndash; Thursday<br>9:00 AM &ndash; 5:00 PM</p>
+                    </li>
+                </ul>
+                <p class="info-note">the oven is always warm!</p>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Footer (shared across all pages) -->
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+        <img src="images/logo-footer.png" alt="Crumbs After Class logo" class="footer-logo">
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+        <p class="copyright">&copy; 2026 Crumbs After Class</p>
+    </footer>
+
+</body>
+</html>
