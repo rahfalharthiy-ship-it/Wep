@@ -678,3 +678,344 @@ main section.page-banner {
     border-top: 1px solid #B46A72;
     font-size: 0.9rem;
 }
+
+/* ----------- Member Dashboard---------- */
+
+/* Page banner background, spacing, and decorative image */
+.page-banner {
+    padding: 1.5rem 6% 3rem;
+    background-color: #F7C8D3;
+    background-image: url("../images/stamp-hero.png");
+    background-repeat: no-repeat;
+    background-position: right -150px top -110px;
+    background-size: 500px;
+}
+
+/* Breadcrumb navigation spacing */
+.breadcrumb {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Spacing below the page title */
+.page-banner h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* Limit the width of the introduction text */
+.page-intro {
+    max-width: 680px;
+    margin: 0;
+}
+
+/* Main content spacing */
+.page-content {
+    padding: 2.5rem 6% 4.5rem;
+}
+
+/* Welcome message card */
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Circular member avatar */
+.avatar {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: #F7C8D3;
+    color: #B46A72;
+    font-weight: bold;
+}
+
+/* Arrange the three statistics cards in a row */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 2.5rem;
+}
+
+/* Individual statistics card */
+.stat {
+    padding: 1.2rem;
+    background-color: #FFFFFF;
+    border-top: 4px solid #A8B58A;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Highlight the statistic number */
+.stat strong {
+    display: block;
+    color: #B46A72;
+    font-size: 2rem;
+}
+
+/* Statistics description */
+.stat span {
+    font-size: 0.9rem;
+}
+
+/* Table container with horizontal scrolling when needed */
+.table-wrap {
+    overflow-x: auto;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Table dimensions and border spacing */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+/* Table cell spacing and alignment */
+th,
+td {
+    padding: 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid #EADED8;
+}
+
+/* Table header background */
+th {
+    background-color: #F7C8D3;
+}
+
+/* Emphasize action links in the table */
+td a {
+    font-weight: bold;
+}
+
+/* Shared style for request status labels */
+.status {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Pending request status */
+.pending {
+    background-color: #A9B7C6;
+}
+
+/* Declined request status */
+.declined {
+    background-color: #F5D6D4;
+}
+
+/* Completed request status */
+.completed {
+    background-color: #DCE6CF;
+}
+
+/* Flexbox section containing links to other pages */
+.action-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Individual action card */
+.action-card {
+    flex: 1 1 300px;
+    padding: 1.4rem;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Spacing below the text inside action cards */
+.action-card p {
+    margin-bottom: 1rem;
+}
+
+
+/*-------------Request to Join & Offering Evaluation-----------*/
+
+/* Place the form and offering details side by side */
+.form-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Shared card style for forms and offering details */
+.form-panel,
+.offering-summary {
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Form field labels */
+.form-panel label {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+/* Shared appearance for text fields, dropdowns, and text areas */
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #E4C6CB;
+    border-radius: 10px;
+    background-color: #FFF7E6;
+    color: #2D3A47;
+    font: inherit;
+}
+
+/* Highlight a form field when it receives focus */
+.form-panel input:focus,
+.form-panel select:focus,
+.form-panel textarea:focus {
+    outline: 2px solid #B46A72;
+}
+
+/* Allow the user to resize the feedback text area vertically */
+.form-panel textarea {
+    resize: vertical;
+}
+
+/* Make the form submit button fill the available width */
+.form-panel .button {
+    width: 100%;
+    font-family: "DM Sans", Arial, sans-serif;
+    cursor: pointer;
+}
+
+/* Center the link back to the dashboard */
+.back-link {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Offering image container */
+.summary-image {
+    width: 100%;
+    height: 205px;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #F7C8D3;
+}
+
+/* Make the offering image fill its container */
+.summary-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Add space above the offering title */
+.offering-summary h2 {
+    margin-top: 0.8rem;
+}
+
+
+/* -----------------Offering Rating Stars----------------- */
+
+/* Arrange rating stars horizontally */
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Style the rating star buttons */
+.rating button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #B46A72;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Style the rating instruction or rating text */
+#rating-note {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Text displayed beside the stars when using the original HTML */
+.rating span {
+    margin-left: 8px;
+    font-size: 0.9rem;
+}
+
+
+/* -------------Responsive Layout------------------*/
+
+/* Adjust the layout for tablets and smaller screens */
+@media (max-width: 800px) {
+
+    /* Stack the form and offering details vertically */
+    .form-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack statistics cards vertically */
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack action cards vertically using Flexbox */
+    .action-cards {
+        flex-direction: column;
+    }
+
+    /* Adjust navigation spacing */
+    .main-nav ul {
+        gap: 0.2rem;
+    }
+
+    /* Reduce navigation link size */
+    .main-nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Adjust padding on mobile screens */
+@media (max-width: 500px) {
+
+    .page-content {
+        padding: 1.5rem 5% 3rem;
+    }
+
+    .page-banner {
+        padding: 1.3rem 5% 2rem;
+    }
+
+    /* Reduce card padding on small screens */
+    .form-panel,
+    .offering-summary {
+        padding: 1rem;
+    }
+}
