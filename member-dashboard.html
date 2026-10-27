@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page settings and CSS connection -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard | Crumbs After Class</title>
+
+    <!-- Connect the shared stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <!-- Website logo and navigation menu -->
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <img src="images/logo.png"
+                 alt="Crumbs After Class logo"
+                 class="brand-logo">
+
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="club-offerings.html">Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+
+                <!-- Highlight the current page -->
+                <li>
+                    <a href="member-dashboard.html" class="active">
+                        Member Dashboard
+                    </a>
+                </li>
+
+                <li><a href="manager-dashboard.html">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+
+        <!-- Page title and breadcrumb navigation -->
+        <section class="page-banner">
+            <p class="breadcrumb">
+                <a href="index.html">Home</a> &gt; Member Dashboard
+            </p>
+
+            <h1>Club Member Dashboard</h1>
+
+            <p class="page-intro">
+                Keep track of your requests and baking sessions.
+            </p>
+        </section>
+
+        <section class="page-content">
+
+            <!-- Welcome message for the club member -->
+            <div class="dashboard-welcome">
+                <div class="avatar">M</div>
+                <strong>Welcome, Member Name</strong>
+            </div>
+
+            <!-- Summary of the member's participation requests -->
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>1</strong>
+                    <span>Pending requests</span>
+                </div>
+
+                <div class="stat">
+                    <strong>1</strong>
+                    <span>Completed offerings</span>
+                </div>
+
+                <div class="stat">
+                    <strong>1</strong>
+                    <span>Declined requests</span>
+                </div>
+
+            </div>
+
+            <!-- Table displaying previous participation requests -->
+            <h2>My participation requests</h2>
+
+            <div class="table-wrap">
+                <table>
+
+                    <!-- Table column headings -->
+                    <thead>
+                        <tr>
+                            <th>Offering name</th>
+                            <th>Request date</th>
+                            <th>Cost</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <!-- Sample participation requests -->
+                    <tbody>
+                        <tr>
+                            <td>First Loaf</td>
+                            <td>02/10/2026</td>
+                            <td>0 SAR</td>
+                            <td>
+                                <span class="status pending">Pending</span>
+                            </td>
+                            <td><a href="#">View</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Cinnamon Roll Night</td>
+                            <td>08/10/2026</td>
+                            <td>80 SAR</td>
+                            <td>
+                                <span class="status declined">Declined</span>
+                            </td>
+                            <td>
+                                <a href="request-to-join.html">Request again</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Cake Decorating Basics</td>
+                            <td>15/09/2026</td>
+                            <td>150 SAR</td>
+                            <td>
+                                <span class="status completed">Completed</span>
+                            </td>
+                            <td>
+                                <a href="offering-evaluation.html">Evaluate</a>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <!-- Flexbox section containing links to the required pages -->
+            <div class="action-cards">
+
+                <!-- Link to the request form -->
+                <article class="action-card">
+                    <h3>Liked your last offering?</h3>
+                    <p>Browse what's available and join a new one.</p>
+
+                    <a href="request-to-join.html" class="button">
+                        Request to join an offering
+                    </a>
+                </article>
+
+                <!-- Link to the evaluation form -->
+                <article class="action-card">
+                    <h3>How was Cake Decorating Basics?</h3>
+                    <p>Tell us about your experience.</p>
+
+                    <a href="offering-evaluation.html" class="button">
+                        Evaluate this offering
+                    </a>
+                </article>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <!-- Contact information, logo, and social media -->
+    <footer class="site-footer">
+
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+
+        <img src="images/logo-footer.png"
+             alt="Crumbs After Class logo"
+             class="footer-logo">
+
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+
+        <!-- Copyright notice -->
+        <p class="copyright">
+            &copy; 2026 Crumbs After Class
+        </p>
+
+    </footer>
+
+</body>
+</html>
