@@ -1019,3 +1019,45 @@ td a {
         padding: 1rem;
     }
 }
+
+/* -------------Manager classes and add offerings------------------*/
+
+#manager-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+		
+		
+#manager-welcome img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+}
+
+#manager-welcome h2 {
+    margin: 0;
+}
+
+.manage-team-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+	margin-top: 25px;
+}
+
+#manager-offering-list .offering-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+}
+
+#manager-offering-list .offering-card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
