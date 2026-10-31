@@ -1061,3 +1061,154 @@ td a {
     margin-top: auto;
     align-self: flex-start;
 }
+
+/* =========================================================
+   AROUBS PAGES — About Us, Instructor Profile, Contact Us
+   Added section. 
+   ========================================================= */
+
+/* ---------- Section spacing on these content pages ---------- */
+/* Only direct-child headings act as section separators, so headings
+   inside cards (mission, club info) are not affected */
+.info-page > h2 {
+    margin-top: 2.75rem;
+}
+
+/* ---------- About Us: mission statement ---------- */
+.about-mission {
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 2px solid #F7C8D3;
+    border-radius: 22px;
+    padding: 2.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.about-mission h2 {
+    margin-bottom: 0.6rem;
+}
+
+.about-mission p {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ---------- About Us: our story (image beside text) ---------- */
+.about-story {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-story img {
+    flex: 0 0 340px;
+    width: 340px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.about-story .story-text {
+    flex: 1 1 320px;
+}
+
+/* ---------- Meet the team (four cards per row) ---------- */
+/* Overrides the default one-third card width to show four across */
+.team-list .offering-card {
+    flex: 0 0 calc(25% - 2rem);
+}
+
+.team-list .offering-card h3 {
+    margin-bottom: 0.1rem;
+}
+
+.team-list .offering-card h3 a {
+    text-decoration: none;
+}
+
+.team-role {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ---------- Two-column form (Join Our Team) ---------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
+}
+
+/* A field that should span the full width of the form */
+.form-grid .full-row {
+    grid-column: 1 / -1;
+}
+
+/* ---------- Instructor Profile: header card ---------- */
+.instructor-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.instructor-header img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.instructor-header h1 {
+    margin: 0 0 0.3rem;
+    font-size: 2.4rem;
+}
+
+.instructor-title {
+    margin: 0 0 0.4rem;
+    opacity: 0.8;
+}
+
+/* ---------- Instructor Profile: biography box ---------- */
+.bio-box {
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* ---------- Instructor Profile: photo inside the details table ---------- */
+.details-photo img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ---------- Responsive adjustments for these pages ---------- */
+@media (max-width: 800px) {
+
+    /* Two team cards per row on tablets */
+    .team-list .offering-card {
+        flex: 0 0 calc(50% - 2rem);
+    }
+
+    /* Stack the Join Our Team fields in one column */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Let the story image take the full width */
+    .about-story img {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
