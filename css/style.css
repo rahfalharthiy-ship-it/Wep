@@ -1179,6 +1179,15 @@ td a {
     border-radius: 18px;
     box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
 }
+/* Icon above each statistic number */
+.stat-icon {
+    display: block;          /* sits on its own line, above the number */
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+.stats .stat {
+    text-align: center !important;
+}
 
 /* ---------- Instructor Profile: photo inside the details table ---------- */
 .details-photo img {
