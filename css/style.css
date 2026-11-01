@@ -829,7 +829,7 @@ td a {
 
 /* Spacing below the text inside action cards */
 .action-card p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 
