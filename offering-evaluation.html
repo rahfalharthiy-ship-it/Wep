@@ -63,9 +63,7 @@
             <div class="form-layout">
 
                 <!-- Form for evaluating a completed offering -->
-                <form class="form-panel"
-                      action="#"
-                      method="get">
+                <form class="form-panel" action="#"  method="get"  id="evaluationForm" novalidate>
 
                     <!-- Drop-down list of previous offerings -->
                     <label for="completed">Completed offering</label>
@@ -94,15 +92,15 @@
                     <!-- Rating control -->
                     <label>Rating</label>
 
-                    <div class="rating">
-                        <button type="button" aria-label="1 star">☆</button>
-                        <button type="button" aria-label="2 stars">☆</button>
-                        <button type="button" aria-label="3 stars">☆</button>
-                        <button type="button" aria-label="4 stars">☆</button>
-                        <button type="button" aria-label="5 stars">☆</button>
+                    <div class="rating" id="rating">
+                    <button type="button" data-rating="1">☆</button>
+                    <button type="button" data-rating="2">☆</button>
+                    <button type="button" data-rating="3">☆</button>
+                    <button type="button" data-rating="4">☆</button>
+                    <button type="button" data-rating="5">☆</button>
 
-                     <span>Tap a star to rate</span>
-                   </div>
+                     <span id="ratingText">Tap a star to rate</span>
+                       </div>
 
                     <!-- Written feedback from the member -->
                     <label for="feedback">Feedback</label>
@@ -113,6 +111,7 @@
                         rows="5"
                         placeholder="Share your feedback about this offering"
                     ></textarea>
+                    <p id="evaluationMessage"></p>
 
                     <!-- Submit the evaluation form -->
                     <button type="submit" class="button">
@@ -158,6 +157,70 @@
         </div>
 
     </main>
+    <script>
+const evaluationForm = document.getElementById("evaluationForm");
+
+const stars = document.querySelectorAll("#rating button");
+const ratingText = document.getElementById("ratingText");
+
+const feedback = document.getElementById("feedback");
+const completed = document.getElementById("completed");
+const message = document.getElementById("evaluationMessage");
+
+let selectedRating = 0;
+
+// Select rating
+stars.forEach(function(star) {
+    star.addEventListener("click", function() {
+
+        selectedRating = Number(this.dataset.rating);
+
+        stars.forEach(function(item) {
+            const value = Number(item.dataset.rating);
+
+            item.textContent =
+                value <= selectedRating ? "★" : "☆";
+        });
+
+        ratingText.textContent =
+            selectedRating + " out of 5 stars";
+    });
+});
+
+// Submit evaluation
+evaluationForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const errors = [];
+
+    if (completed.value === "") {
+        errors.push("Please select a completed offering.");
+    }
+
+    if (selectedRating === 0) {
+        errors.push("Please select a rating.");
+    }
+
+    if (feedback.value.trim() === "") {
+        errors.push("Please enter your feedback.");
+    }
+
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return;
+    }
+
+    // Check rating
+    if (selectedRating >= 4) {
+        alert("Thank you for your positive feedback!");
+    } else {
+        alert("We apologize for your experience. Thank you for your feedback.");
+    }
+
+    // Return to Member Dashboard
+    window.location.href = "member-dashboard.html";
+});
+</script>
 
     <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
