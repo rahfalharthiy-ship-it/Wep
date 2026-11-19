@@ -65,7 +65,8 @@
                 <!-- Participation request form -->
                 <form class="form-panel"
                       action="#"
-                      method="get">
+                      method="get"
+                    id="requestForm" novalidate>
 
                     <!-- Member's full name -->
                     <label for="fullname">Full name</label>
@@ -109,7 +110,8 @@
                     </a>
 
                 </form>
-
+                <div id="requestList"></div>
+                
                 <!-- Selected offering information card -->
                 <aside class="offering-summary">
 
@@ -142,7 +144,97 @@
         </div>
 
     </main>
+    
+     <script>
+const requestForm = document.getElementById("requestForm");
+const requestList = document.getElementById("requestList");
 
+let newRequests = [];
+
+requestForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("fullname").value.trim();
+    const offering = document.getElementById("offering").value;
+    const date = document.getElementById("date").value;
+
+    const errors = [];
+
+    // Check offering selection
+    if (offering === "") {
+        errors.push("Please select an offering.");
+    }
+
+    // Check full name
+    const namePattern = /^[\p{L}]+(?:[ '-][\p{L}]+)+$/u;
+
+    if (!namePattern.test(name)) {
+        errors.push("Please enter your full name using letters only.");
+    }
+
+    // Check future date
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const selectedDate = date ? new Date(date + "T00:00:00") : null;
+
+    if (!date || selectedDate <= today) {
+        errors.push("Preferred date must be a future date.");
+    }
+
+    // Display validation errors
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return;
+    }
+
+    // Confirmation message
+    const stay = confirm(
+        "Your request has been sent successfully!\n\n" +
+        "Do you want to stay on this page?\n" +
+        "Click OK to stay or Cancel to return to Dashboard."
+    );
+
+    if (stay) {
+        const request = {
+            offering: offering,
+            name: name,
+            date: date
+        };
+
+        newRequests.push(request);
+
+        displayRequests();
+
+        requestForm.reset();
+    } else {
+        window.location.href = "member-dashboard.html";
+    }
+});
+
+// Display all temporary requests
+function displayRequests() {
+    requestList.innerHTML = "<h2>My New Requests</h2>";
+
+    newRequests.forEach(function(request) {
+        requestList.innerHTML += `
+            <div class="request-item">
+                <p><strong>Offering:</strong> ${escapeHTML(request.offering)}</p>
+                <p><strong>Member Name:</strong> ${escapeHTML(request.name)}</p>
+                <p><strong>Preferred Date:</strong> ${escapeHTML(request.date)}</p>
+            </div>
+        `;
+    });
+}
+
+// Prevent user input from being interpreted as HTML
+function escapeHTML(value) {
+    const div = document.createElement("div");
+    div.textContent = value;
+    return div.innerHTML;
+}
+</script>
+    
     <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
 
