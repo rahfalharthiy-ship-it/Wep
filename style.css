@@ -1,0 +1,2264 @@
+/* =========================================================
+   Crumbs After Class
+   Shared external stylesheet used by all pages of the website
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=DM+Serif+Display&family=Caveat:wght@700&display=swap");
+
+/* ---------- Colour palette (reference) ----------
+   Vanilla Cream    #FFF7E6   Page background and form fields
+   Blush Petal      #F7C8D3   Banners, table headers, tags and hover states
+   Rosewood         #B46A72   Buttons, links, headings and stars
+   Sage Leaf        #A8B58A   Accents (quotation marks, statistic cards)
+   Misty Sky        #A9B7C6   "Pending" status
+   Midnight Lagoon  #2D3A47   Body text and footer
+
+   Lighter tints of the palette are used for borders and status labels:
+   #E4C6CB and #EADED8 (borders), #F5D6D4 ("Declined"), #DCE6CF ("Completed").
+
+   Shadows use Midnight Lagoon (45, 58, 71) with transparency
+   instead of black, giving a softer result on light backgrounds.
+
+   Dark theme (see the end of this file): #1F2933 page background,
+   Midnight Lagoon surfaces, #384858 fields, Vanilla Cream text
+   and Blush Petal headings and links.
+   ------------------------------------------------ */
+
+/* ---------- Base styles ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #FFF7E6;
+    color: #2D3A47;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-weight: normal;
+    color: #B46A72;
+    line-height: 1.15;
+}
+
+h1 { font-size: 3.4rem; margin: 0 0 1rem; }
+h2 { font-size: 2.2rem; margin: 0 0 0.4rem; }
+h3 { font-size: 1.35rem; margin: 0.9rem 0 0.4rem; }
+
+a {
+    color: #B46A72;
+}
+
+/* Flexible images: never wider than their container */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+main section {
+    padding: 4.5rem 6%;
+}
+
+/* Introductory line displayed below each section heading */
+.section-intro {
+    margin: 0 0 2.25rem;
+    color: #2D3A47;
+    opacity: 0.8;
+}
+
+/* Visible focus outline for keyboard navigation (accessibility) */
+a:focus {
+    outline: 3px solid #B46A72;
+    outline-offset: 3px;
+}
+
+/* ---------- Buttons ---------- */
+.button {
+    display: inline-block;
+    padding: 0.8em 2em;
+    background-color: #B46A72;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border: 2px solid #B46A72;
+    border-radius: 30px;
+    box-shadow: 0 6px 14px rgba(180, 106, 114, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+/* Hover state: the button is raised slightly */
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(180, 106, 114, 0.45);
+}
+
+/* Active state: the button is pressed down while clicked */
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(180, 106, 114, 0.3);
+}
+
+/* ---------- Header and navigation (Flexbox) ---------- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.9rem 6%;
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 72px;
+    height: 72px;
+}
+
+.brand-name {
+    margin-left: 0.75rem;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 1.5rem;
+    color: #B46A72;
+}
+
+/* The navigation is pushed to the right of the header */
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    margin-left: 0.4rem;
+}
+
+.main-nav a {
+    display: block;
+    padding: 0.5em 1em;
+    color: #2D3A47;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+}
+
+.main-nav a:hover {
+    background-color: #F7C8D3;
+}
+
+/* Highlights the link of the current page */
+.main-nav a.active {
+    background-color: #B46A72;
+    color: #FFFFFF;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(180, 106, 114, 0.35);
+}
+
+/* ---------- Page banner (used at the top of every page except Home) ---------- */
+/* The selector "main section.page-banner" has a higher specificity than
+   "main section", so this padding overrides the default section padding */
+main section.page-banner {
+    padding: 1.5rem 6% 6.5rem;
+    background-color: #F7C8D3;
+    /* Decorative club stamp, partially visible at the top-right corner */
+    background-image: url("../images/stamp-hero.png");
+    background-repeat: no-repeat;
+    background-size: 620px;
+    background-position: right -150px top -110px;
+}
+
+/* Breadcrumb navigation above the page heading */
+.breadcrumb {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+}
+
+.page-banner h1 {
+    margin: 0 0 0.5rem;
+}
+
+/* Introduction line under the page heading, limited in width for readability */
+.page-intro {
+    max-width: 680px;
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+/* Handwritten-style note placed beside the page heading */
+.page-note {
+    display: inline-block;
+    margin-left: 1.25rem;
+    vertical-align: middle;
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #FFF7E6;
+    text-shadow: 3px 3px 0 #B46A72;
+    transform: rotate(-6deg);
+}
+
+/* ---------- Home hero section (centred column layout using Flexbox, as per the wireframe) ---------- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    background-color: #F7C8D3;
+    /* Decorative club stamp, partially visible at the bottom-left corner
+       (transparency and rotation are applied within the image file) */
+    background-image: url("../images/stamp-hero.png");
+    background-repeat: no-repeat;
+    background-position: left -560px bottom -560px;
+}
+
+.hero-image {
+    width: 760px;
+    max-width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 28px;
+    margin: 0.5rem 0 2.75rem;
+    /* A solid Rosewood offset shadow creates a layered effect */
+    box-shadow: 18px 18px 0 #B46A72, 0 18px 40px rgba(45, 58, 71, 0.18);
+}
+
+.hero-text {
+    width: 600px;
+    margin: 0 0 2rem;
+}
+
+/* The hero paragraph is divided into three lines, each styled separately */
+.hero-kicker,
+.hero-script,
+.hero-rest {
+    display: block;
+}
+
+/* Line 1: small capitals with increased letter spacing */
+.hero-kicker {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.18em;
+    color: #B46A72;
+}
+
+/* Line 2: large handwritten-style text with a slight rotation */
+.hero-script {
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 5rem;
+    line-height: 1;
+    color: #FFF7E6;
+    text-shadow: 4px 4px 0 #B46A72;
+    transform: rotate(-4deg);
+    margin: 0.2rem 0 1.2rem;
+}
+
+/* Line 3: serif italic text at reduced opacity */
+.hero-rest {
+    width: 520px;
+    margin: 0 auto;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-style: italic;
+    font-size: 1.45rem;
+    line-height: 1.4;
+    color: #2D3A47;
+    opacity: 0.85;
+}
+
+/* ---------- Offering cards (Flexbox layout and hover effect) ---------- */
+/* The negative margin offsets the outer margin of the cards,
+   aligning the first and last card with the section heading */
+.offering-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.offering-card {
+    /* Three cards per row: one third of the row width minus the horizontal margins */
+    flex: 0 0 calc(33.333% - 2rem);
+    margin: 1rem;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    padding: 1rem 1rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Hover state: the card is raised and its shadow enlarged */
+.offering-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(45, 58, 71, 0.18);
+}
+
+.offering-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.offering-card p {
+    margin: 0;
+}
+
+/* Additional offering details are hidden by default */
+.offering-details {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    height: 210px;
+    padding: 1.5rem;
+    background-color: #B46A72;
+    color: #FFFFFF;
+    border-radius: 16px;
+}
+
+.offering-details p {
+    margin-bottom: 0.4rem;
+}
+
+/* The details are displayed over the image when the card is hovered */
+.offering-card:hover .offering-details {
+    display: block;
+}
+
+/* ---------- Member reviews section ---------- */
+.reviews {
+    background-color: #FFFFFF;
+}
+
+.review-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+}
+
+.review {
+    flex: 1 1 260px;
+    margin: 1rem;
+    position: relative;
+    background-color: #FFF7E6;
+    border-radius: 22px;
+    padding: 2rem 1.75rem 1.75rem;
+    box-shadow: 0 2px 6px rgba(45, 58, 71, 0.08);
+}
+
+/* Decorative quotation mark positioned on the top edge of each review */
+.review::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.35em;
+    left: 0.4em;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: #A8B58A;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.review-photo {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 2px 6px rgba(45, 58, 71, 0.08);
+}
+
+.review-header p {
+    margin: 0;
+}
+
+.review-name {
+    font-weight: bold;
+}
+
+/* Offering name displayed as a tag */
+.review-header p.review-offering {
+    display: inline-block;
+    margin: 0.15rem 0 0.2rem;
+    padding: 0.15em 0.8em;
+    background-color: #F7C8D3;
+    color: #2D3A47;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.review-rating {
+    font-size: 0.85rem;
+    color: #2D3A47;
+}
+
+/* Star rating characters (&#9733; filled and &#9734; empty) */
+.stars {
+    margin-right: 0.3rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: #B46A72;
+}
+
+.review-text {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Handwritten-style note placed beside a section heading on a light background */
+.section-note {
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: middle;
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #A8B58A;
+    text-shadow: 3px 3px 0 #B46A72;
+    transform: rotate(-6deg);
+}
+
+/* ---------- Extra section: Member Gallery ---------- */
+.gallery {
+    text-align: center;
+    /* Decorative club stamp, partially visible at the top-right corner */
+    background-image: url("../images/stamp-gallery.png");
+    background-repeat: no-repeat;
+    background-position: right -200px top -120px;
+}
+
+.gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    margin: -1rem;
+}
+
+.gallery-list .photo {
+    flex: 0 1 240px;
+    margin: 1rem;
+    background-color: #FFFFFF;
+    padding: 0.75rem 0.75rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Alternating rotation applied to the gallery photos */
+.gallery-list .tilt-left {
+    transform: rotate(-2deg);
+}
+
+.gallery-list .tilt-right {
+    transform: rotate(2deg);
+}
+
+/* Hover state: the photo is straightened and slightly enlarged */
+.gallery-list .photo:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 18px 40px rgba(45, 58, 71, 0.18);
+}
+
+.gallery-list img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.photo-caption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.photo-caption strong {
+    display: block;
+    color: #B46A72;
+}
+
+/* ---------- "See more" feature (fragment link and the :target pseudo-class) ---------- */
+
+/* The additional photos are hidden by default */
+.gallery-more {
+    display: none;
+    margin-top: 2.75rem;
+}
+
+/* The photos are displayed when #more-photos becomes the target of the URL */
+.gallery-more:target {
+    display: block;
+}
+
+.see-more,
+.gallery-more .button {
+    margin-top: 3.75rem;
+}
+
+/* Scroll offset so that the sticky header does not cover the target */
+#gallery,
+#more-photos {
+    scroll-margin-top: 110px;
+}
+
+/* The "See more" button (adjacent sibling) is hidden while the photos are displayed */
+.gallery-more:target + .see-more {
+    display: none;
+}
+
+/* ---------- Club Offerings page ---------- */
+
+/* Content area of the page; no top padding because the search bar overlaps the page banner */
+.catalog {
+    padding: 0 6% 4.5rem;
+}
+
+/* Smaller button variant used in cards and forms */
+.button-small {
+    padding: 0.55em 1.4em;
+    font-size: 0.95rem;
+}
+
+/* Search, skill-level filter and sorting controls (Flexbox layout) */
+.catalog-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 1.25rem 1.5rem;
+    margin-top: -3.5rem;    /* Negative margin places the bar over the edge of the banner */
+    margin-bottom: 2.75rem;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.tool {
+    margin-right: 1.5rem;
+}
+
+/* The search field expands to fill the remaining space */
+.tool-search {
+    flex: 1;
+}
+
+.tool label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #B46A72;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+}
+
+.catalog-tools input[type="search"],
+.catalog-tools select {
+    padding: 0.6em 1em;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #2D3A47;
+    background-color: #FFF7E6;
+    border: 2px solid #F7C8D3;
+    border-radius: 30px;
+}
+
+.catalog-tools input[type="search"] {
+    flex: 1;
+    margin-right: 0.6rem;
+}
+
+.catalog-tools select {
+    width: 180px;
+}
+
+/* Focus state for form controls */
+.catalog-tools input:focus,
+.catalog-tools select:focus {
+    outline: none;
+    border-color: #B46A72;
+}
+
+/* Font family is redefined because input elements do not inherit it */
+.catalog-tools .button {
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* Card content is arranged vertically so the button aligns to the bottom */
+.catalog .offering-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card titles use <h2> to preserve the heading hierarchy after <h1>,
+   and are sized to match the <h3> card titles on the Home page */
+.catalog .offering-card h2 {
+    font-size: 1.35rem;
+    margin: 0.9rem 0 0.4rem;
+}
+
+.offering-price {
+    font-weight: bold;
+    color: #B46A72;
+}
+
+.catalog .offering-card p {
+    margin-bottom: 1.25rem;
+}
+
+.catalog .offering-card .offering-price {
+    margin-bottom: 0.4rem;
+}
+
+.catalog .offering-card .button {
+    margin-top: auto;   /* Aligns the button to the bottom of the card */
+    align-self: flex-start;
+}
+
+/* ---------- Footer (Flexbox layout) ---------- */
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 6% 1.5rem;
+    background-color: #2D3A47;
+    color: #FFF7E6;
+}
+
+.site-footer h2 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem;
+    color: #F7C8D3;
+}
+
+.site-footer a {
+    color: #F7C8D3;
+}
+
+.site-footer p {
+    margin: 0.2rem 0;
+}
+
+/* Both side columns share equal width, keeping the logo centred */
+.footer-contact,
+.footer-social {
+    flex: 1;
+}
+
+.footer-social {
+    text-align: right;
+}
+
+.footer-logo {
+    width: 130px;
+    height: 130px;
+}
+
+.copyright {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #B46A72;
+    font-size: 0.9rem;
+}
+
+/* ---------- Theme button (Home page header) ---------- */
+.theme-button {
+    margin-left: 0.6rem;
+    padding: 0.5em 1.1em;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #B46A72;
+    background-color: transparent;
+    border: 2px solid #B46A72;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Moon icon in the light theme, sun icon in the dark theme */
+.theme-button::before {
+    content: "\263E";
+}
+
+.theme-label {
+    margin-left: 0.35em;
+}
+
+.theme-button:hover {
+    color: #FFFFFF;
+    background-color: #B46A72;
+}
+
+/* ---------- Menu button (Home page, small screens only) ---------- */
+.menu-button {
+    display: none;
+    margin-left: auto;
+    padding: 0.5em 1.1em;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #B46A72;
+    border: 2px solid #B46A72;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* ---------- "Back to Top" button (Home page) ---------- */
+/* Hidden at first; js/home.js shows it after the user scrolls down */
+.back-to-top {
+    display: none;
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 20;
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #B46A72;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 6px 14px rgba(180, 106, 114, 0.45);
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+}
+
+/* ---------- Real-time clock (Home page footer) ---------- */
+.footer-clock {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #F7C8D3;
+}
+
+/* ---------- Club Offerings: skill level tag and "no results" message ---------- */
+.catalog .offering-card .offering-level {
+    align-self: flex-start;
+    margin-bottom: 0.8rem;
+    padding: 0.15em 0.8em;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #2D3A47;
+    background-color: #F7C8D3;
+    border-radius: 30px;
+}
+
+/* Hidden until js/offerings.js finds no matching offering */
+.no-results {
+    display: none;
+    margin: 1rem 0 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* ---------- Member Dashboard ---------- */
+
+/* Content area below the page banner (dashboard, form and profile pages) */
+.page-content {
+    padding: 2.5rem 6% 4.5rem;
+}
+
+/* Welcome card, overlapping the bottom of the banner like the Manager Dashboard */
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: -100px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.dashboard-welcome h2 {
+    margin: 0;
+}
+
+/* Member photo inside the welcome card */
+.dashboard-welcome img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Arrange the three statistics cards in a row */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 2.5rem;
+}
+
+/* Individual statistics card */
+.stat {
+    padding: 1.2rem;
+    background-color: #FFFFFF;
+    border-top: 4px solid #A8B58A;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Highlight the statistic number */
+.stat strong {
+    display: block;
+    color: #B46A72;
+    font-size: 2rem;
+}
+
+/* Statistics description */
+.stat span {
+    font-size: 0.9rem;
+}
+
+/* Table container with horizontal scrolling when needed */
+.table-wrap {
+    overflow-x: auto;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Table dimensions and border spacing */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+/* Table cell spacing and alignment */
+th,
+td {
+    padding: 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid #EADED8;
+}
+
+/* Table header background */
+th {
+    background-color: #F7C8D3;
+}
+
+/* Emphasize action links in the table */
+td a {
+    font-weight: bold;
+}
+
+/* Shared style for request status labels */
+.status {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Pending request status */
+.pending {
+    background-color: #A9B7C6;
+}
+
+/* Declined request status */
+.declined {
+    background-color: #F5D6D4;
+}
+
+/* Completed request status */
+.completed {
+    background-color: #DCE6CF;
+}
+
+/* Space between the requests table and the next heading */
+.table-wrap + h2 {
+    margin-top: 2.5rem;
+}
+
+/* Request details pop-up: hidden by default, shown with :target when View is clicked */
+.request-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1rem;
+    background-color: rgba(45, 58, 71, 0.55);
+    justify-content: center;
+    align-items: center;
+}
+
+.request-popup:target {
+    display: flex;
+}
+
+/* Keep the table heading below the sticky header after closing the pop-up */
+#requests {
+    scroll-margin-top: 110px;
+}
+
+.popup-box {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.25);
+}
+
+.popup-box h2 {
+    margin-top: 0;
+}
+
+.popup-box p {
+    margin: 0.5rem 0;
+}
+
+.popup-note {
+    font-style: italic;
+}
+
+.popup-box .button {
+    margin-top: 1rem;
+}
+
+/* The x button in the top corner of the pop-up */
+.popup-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 1.1rem;
+    font-size: 2rem;
+    line-height: 1;
+    text-decoration: none;
+    color: #B46A72;
+}
+
+/* Flexbox section containing links to other pages */
+.action-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Individual action card */
+.action-card {
+    flex: 1 1 300px;
+    padding: 1.4rem;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Spacing below the text inside action cards */
+.action-card p {
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Request to Join and Offering Evaluation pages ---------- */
+
+/* Place the form and offering details side by side */
+.form-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Shared card style for forms and offering details */
+.form-panel,
+.offering-summary {
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Form field labels */
+.form-panel label {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+/* Shared appearance for text fields, dropdowns, and text areas */
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #E4C6CB;
+    border-radius: 10px;
+    background-color: #FFF7E6;
+    color: #2D3A47;
+    font: inherit;
+}
+
+/* Highlight a form field when it receives focus */
+.form-panel input:focus,
+.form-panel select:focus,
+.form-panel textarea:focus {
+    outline: 2px solid #B46A72;
+}
+
+/* Allow the user to resize the feedback text area vertically */
+.form-panel textarea {
+    resize: vertical;
+}
+
+/* Make the form submit button fill the available width */
+.form-panel .button {
+    width: 100%;
+    font-family: "DM Sans", Arial, sans-serif;
+    cursor: pointer;
+}
+
+/* Center the link back to the dashboard */
+.back-link {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Offering image container */
+.summary-image {
+    width: 100%;
+    height: 205px;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #F7C8D3;
+}
+
+/* Make the offering image fill its container */
+.summary-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Add space above the offering title */
+.offering-summary h2 {
+    margin-top: 0.8rem;
+}
+
+/* ---------- Offering Evaluation: star rating ---------- */
+
+/* Stars and the "Tap a star to rate" text placed in one row */
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Rating group: a fieldset without its default border, with the legend styled like the other labels */
+.rating-group {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.rating-group legend {
+    margin: 0.5rem 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+/* Stars in reverse order, so the ~ selector can colour every star before the chosen one */
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    position: relative;
+}
+
+/* Hide the radio circles but keep them usable with the keyboard */
+.rating-stars input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.rating-stars label {
+    display: inline-block;
+    margin: 0;
+    padding: 0 0.1rem;
+    color: #E4C6CB;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Colour the chosen star and every star before it, and preview on hover */
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: #B46A72;
+}
+
+/* "Tap a star to rate" text beside the stars */
+.rating span {
+    margin-left: 8px;
+    font-size: 0.9rem;
+}
+
+/* ---------- Smaller screens: dashboard and form pages ---------- */
+
+/* Adjust the layout for tablets and smaller screens */
+@media (max-width: 800px) {
+
+    /* Stack the form and offering details vertically */
+    .form-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack statistics cards vertically */
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack action cards vertically using Flexbox */
+    .action-cards {
+        flex-direction: column;
+    }
+
+    /* Adjust navigation spacing */
+    .main-nav ul {
+        gap: 0.2rem;
+    }
+
+    /* Reduce navigation link size */
+    .main-nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Adjust padding on mobile screens */
+@media (max-width: 500px) {
+
+    .page-content {
+        padding: 1.5rem 5% 3rem;
+    }
+
+    .page-banner {
+        padding: 1.3rem 5% 2rem;
+    }
+
+    /* Reduce card padding on small screens */
+    .form-panel,
+    .offering-summary {
+        padding: 1rem;
+    }
+}
+
+/* ---------- Manager Dashboard ---------- */
+
+/* Welcome card, overlapping the bottom of the banner */
+#manager-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: -100px;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Manager photo inside the welcome card */
+#manager-welcome img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Removes the default heading margin inside the welcome card */
+#manager-welcome h2 {
+    margin: 0;
+}
+
+/* "Your Club Offerings" heading with the Add a New Offering button on the right */
+#manager-offerings-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Offerings shown four per row (CSS Grid) */
+#manager-offering-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Links to Add a New Offering and Manage Activity Leaders, side by side in the Flexbox section */
+.manage-team-button {
+    flex: 1 1 300px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* Card content in a column so the Manage button sits at the bottom */
+#manager-offering-list .offering-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+}
+
+/* Pushes the Manage button to the bottom of each card */
+#manager-offering-list .offering-card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* =========================================================
+   About Us and Instructor Profile pages
+   ========================================================= */
+
+/* ---------- Section spacing ---------- */
+/* Only direct-child headings act as section separators, so headings
+   inside cards (mission, club info) are not affected */
+.info-page > h2 {
+    margin-top: 2.75rem;
+}
+
+/* ---------- About Us: mission statement ---------- */
+.about-mission {
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 2px solid #F7C8D3;
+    border-radius: 22px;
+    padding: 2.5rem;
+    margin-top: -100px;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.about-mission h2 {
+    margin-bottom: 0.6rem;
+}
+
+.about-mission p {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ---------- About Us: our story (photo beside text) ---------- */
+.about-story {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Story photo styled as a tilted polaroid, like the Member Gallery on Home */
+.story-photo {
+    flex: 0 0 340px;
+    position: relative;
+    padding: 12px 12px 42px;
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.15);
+    transform: rotate(-3deg);
+}
+
+.story-photo img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Handwritten caption at the bottom of the polaroid */
+.story-photo p {
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    text-align: center;
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #B46A72;
+}
+
+/* Small statistic cards under the story text */
+.about-story .stats {
+    margin: 1.2rem 0 0;
+}
+
+.about-story .stat {
+    padding: 0.9rem;
+    text-align: center;
+}
+
+.about-story .stat strong {
+    font-size: 1.6rem;
+}
+
+/* Handwritten hint showing that the team list scrolls sideways */
+.scroll-hint {
+    margin: -0.6rem 0 0.4rem;
+    text-align: right;
+    font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #B46A72;
+}
+
+/* Short accent bar under each section heading */
+.info-page > h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-top: 0.6rem;
+    background-color: #B46A72;
+    border-radius: 3px;
+}
+
+.about-story .story-text {
+    flex: 1 1 320px;
+}
+
+/* ---------- About Us: Meet the team (horizontal scrolling list) ---------- */
+.team-list {
+    flex-wrap: nowrap;      /* Keeps all cards in one row */
+    overflow-x: auto;       /* Lets the row scroll sideways */
+    padding-bottom: 1rem;   /* Space for the scrollbar */
+}
+
+.team-list .offering-card {
+    flex: 0 0 320px;        /* Fixed card width, wider than the space, so the row scrolls */
+}
+
+.team-list .offering-card h3 {
+    margin-bottom: 0.1rem;
+}
+
+.team-list .offering-card h3 a {
+    text-decoration: none;
+}
+
+/* Role shown under each name */
+.team-role {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ---------- About Us: Join Our Team form (two columns) ---------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.5rem;
+}
+
+/* A field that should span the full width of the form */
+.form-grid .full-row {
+    grid-column: 1 / -1;
+}
+
+/* ---------- Instructor Profile: header card ---------- */
+.instructor-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-top: -100px;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Instructor photo in the header card */
+.instructor-header img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.instructor-header h1 {
+    margin: 0 0 0.3rem;
+    font-size: 2.4rem;
+}
+
+/* Role and speciality under the instructor name */
+.instructor-title {
+    margin: 0 0 0.4rem;
+    opacity: 0.8;
+}
+
+/* ---------- Instructor Profile: reviews on a white panel, like the Home reviews section ---------- */
+.review-panel {
+    padding: 2.5rem 2rem 2rem;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* ---------- Instructor Profile: biography box ---------- */
+.bio-box {
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+/* Icon above each statistic number */
+.stat-icon {
+    display: block;          /* Places the icon on its own line, above the number */
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Centres the content of the statistic cards */
+.stats .stat {
+    text-align: center;
+}
+
+/* ---------- Instructor Profile: photo inside the details table ---------- */
+.details-photo img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ---------- Smaller screens: About Us ---------- */
+@media (max-width: 800px) {
+
+    /* Stack the Join Our Team fields in one column */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Let the story photo take the full width */
+    .story-photo {
+        flex-basis: 100%;
+    }
+}
+
+/* ---------- Add a New Offering page ---------- */
+
+/* Content area of the page */
+.add-offering-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+}
+
+.add-offering-content h1 {
+    margin-bottom: 25px;
+}
+
+/* Form and preview side by side (CSS Grid) */
+.offering-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 35px;
+    align-items: start;
+}
+
+/* Form fields stacked in a column */
+.offering-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Each label with its field */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Text fields */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Grey upload box, as in the wireframe */
+.image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 25px;
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    text-align: center;
+}
+
+.image-upload input {
+    max-width: 100%;
+}
+
+/* Offering Preview panel */
+.offering-preview {
+    padding: 25px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.offering-preview h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Card showing how the new offering will look */
+.preview-card {
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+}
+
+.preview-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Price in the preview card */
+.preview-price {
+    color: #B46A72;
+    font-weight: bold;
+}
+
+/* Long words break instead of overflowing the card */
+.preview-description {
+    overflow-wrap: break-word;
+}
+
+/* Full-width submit button */
+.submit-button {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Smaller screens: stack the form and preview */
+@media (max-width: 768px) {
+    .offering-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Manage Activity Leaders and Instructors page ---------- */
+
+/* Content area of the page */
+.team-content {
+    padding: 2rem 6% 4rem;
+}
+
+/* Current team and the add form side by side (CSS Grid) */
+.team-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+/* White panel for each section */
+.team-panel {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(45, 58, 71, 0.12);
+}
+
+.team-panel h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Table of current activity leaders and instructors */
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.team-table th,
+.team-table td {
+    padding: 0.65rem;
+    text-align: left;
+    border: 1px solid #E4C6CB;
+}
+
+.team-table th {
+    background-color: #F7C8D3;
+}
+
+/* Small photo beside the name */
+.person-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Small photo of each person */
+.person-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #F7C8D3;
+}
+
+/* View link styled as an outlined button; opens the profile page */
+.view-button {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #B46A72;
+    border-radius: 20px;
+    background-color: white;
+    color: #B46A72;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Delete Selected submit button */
+.delete-button {
+    width: 100%;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+/* Add form in two columns (CSS Grid) */
+.team-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+}
+
+.team-form label {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+/* Text fields */
+.team-form input,
+.team-form textarea {
+    width: 100%;
+    padding: 0.65rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #E4C6CB;
+    border-radius: 10px;
+    background-color: #FFF7E6;
+    color: #2D3A47;
+    font: inherit;
+}
+
+/* A field that spans both columns */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Add submit button */
+.team-form .submit-button {
+    width: 100%;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+/* Smaller screens: stack the two sections */
+@media (max-width: 800px) {
+    .team-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Phone screens: less padding and one column in the add form */
+@media (max-width: 500px) {
+    .team-content {
+        padding: 1.5rem 5% 3rem;
+    }
+
+    .team-panel {
+        padding: 1rem;
+    }
+
+    .team-form {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+}
+
+/* Grey upload box, as in the wireframe */
+.team-form input[type="file"] {
+    width: 100%;
+    height: 75px;
+    padding: 5px;
+    background-color: #E5E5E5;
+    font-size: 10px;
+}
+
+/* =========================================================
+   Responsive design: Home page and shared header and footer
+   ========================================================= */
+
+/* Smaller laptops: the theme button shows its icon only, so the header stays on one line */
+@media screen and (max-width: 1200px) {
+    .theme-label {
+        display: none;
+    }
+
+    /* Slightly tighter navigation links */
+    .main-nav li {
+        margin-left: 0.15rem;
+    }
+
+    .main-nav a {
+        padding: 0.5em 0.8em;
+    }
+
+    .brand-name {
+        font-size: 1.3rem;
+    }
+}
+
+/* Tablets and small laptops: the Home navigation moves into a menu opened by the menu button */
+@media screen and (max-width: 1024px) {
+
+    /* Home header: the menu button appears and the navigation is hidden until it is opened */
+    .has-menu .menu-button {
+        display: block;
+        order: 2;
+    }
+
+    .has-menu .theme-button {
+        order: 3;
+        margin-left: 0.5rem;
+    }
+
+    .has-menu .main-nav {
+        display: none;
+        order: 4;
+        flex-basis: 100%;
+        margin: 0.6rem 0 0.2rem;
+    }
+
+    /* Class added by js/home.js when the menu button is clicked */
+    .has-menu .main-nav.open {
+        display: block;
+    }
+
+    /* Navigation links stacked in one column */
+    .has-menu .main-nav ul {
+        flex-direction: column;
+    }
+
+    .has-menu .main-nav li {
+        margin: 0.15rem 0;
+    }
+
+    .has-menu .main-nav a {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Tablets: two offering cards per row and a smaller hero */
+@media screen and (max-width: 900px) {
+    .offering-card {
+        flex-basis: calc(50% - 2rem);
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .hero-text {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+/* Phones */
+@media screen and (max-width: 768px) {
+
+    /* Smaller headings and section spacing */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    main section {
+        padding: 3rem 5%;
+    }
+
+    /* Header: less padding */
+    .site-header {
+        padding: 0.6rem 5%;
+    }
+
+    /* Hero: the video and text take the full width;
+       the decorative stamp is removed so it does not sit behind the text */
+    .hero {
+        padding-top: 2.5rem;
+        padding-bottom: 3.5rem;
+        background-image: none;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 50vw;           /* Keeps the video close to its 16:9 shape, so its captions stay visible */
+        margin-bottom: 2rem;
+        box-shadow: 10px 10px 0 #B46A72, 0 12px 28px rgba(45, 58, 71, 0.18);
+    }
+
+    .hero-rest {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    .hero-script {
+        font-size: 3.6rem;
+    }
+
+    /* Offerings: one card per row */
+    .offering-card {
+        flex-basis: calc(100% - 2rem);
+    }
+
+    /* Offerings page: the search, filter and sort controls are stacked */
+    .catalog-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tool {
+        margin: 0 0 0.9rem;
+    }
+
+    .catalog-tools select {
+        width: 100%;
+    }
+
+    /* Footer: one centred column */
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 5% 1.5rem;
+    }
+
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin: 1.25rem 0;
+    }
+
+    .copyright {
+        width: 100%;
+    }
+
+    /* Smaller logo and name so the logo, name and both buttons fit on one row */
+    .brand-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand-name {
+        margin-left: 0.5rem;
+        font-size: 1.05rem;
+    }
+
+    /* Smaller "Back to Top" button */
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 46px;
+        height: 46px;
+    }
+}
+
+/* Small phones: the menu button shows its icon only */
+@media screen and (max-width: 480px) {
+    .menu-label {
+        display: none;
+    }
+}
+
+/* =========================================================
+   Dark theme: applied to every page when the <html> element
+   has the "dark-theme" class (set by js/theme.js)
+
+   Dark theme palette:
+   Graphite         #5D6973   Hover states, borders and quotation marks
+   Deep Graphite    #262D34   Page background and form fields
+   Card Graphite    #36404A   Header, cards and panels
+   Oat Milk         #F8E3C4   Text, polaroids and the reviews section
+   Pollen           #F0C283   Buttons, prices and star ratings
+   Ballerina        #DCA7A1   Banners, headings, links and tags
+   Love Potion      #CF6E6C   Review cards and handwritten notes
+   Deep Love Potion #A85452   Shadow behind the Home video
+                    #B85C5A   Skill level tags on the Offerings page
+   ========================================================= */
+
+/* ---------- Page background and text ---------- */
+.dark-theme body {
+    background-color: #262D34;
+    color: #F8E3C4;
+}
+
+/* ---------- Headings, links and accent text ---------- */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme a,
+.dark-theme .brand-name,
+.dark-theme .tool label,
+.dark-theme .stat strong,
+.dark-theme .popup-close,
+.dark-theme .scroll-hint {
+    color: #DCA7A1;
+}
+
+.dark-theme .offering-price,
+.dark-theme .preview-price,
+.dark-theme .stars {
+    color: #F0C283;
+}
+
+.dark-theme .section-intro,
+.dark-theme .main-nav a,
+.dark-theme .review-rating {
+    color: #D9CDBB;
+}
+
+/* ---------- Header, cards and panels ---------- */
+.dark-theme .site-header,
+.dark-theme .offering-card,
+.dark-theme .catalog-tools,
+.dark-theme .dashboard-welcome,
+.dark-theme #manager-welcome,
+.dark-theme .stat,
+.dark-theme .table-wrap,
+.dark-theme .popup-box,
+.dark-theme .action-card,
+.dark-theme .form-panel,
+.dark-theme .offering-summary,
+.dark-theme .about-mission,
+.dark-theme .instructor-header,
+.dark-theme .bio-box,
+.dark-theme .offering-preview,
+.dark-theme .preview-card,
+.dark-theme .team-panel {
+    background-color: #36404A;
+    color: #F8E3C4;
+}
+
+.dark-theme .offering-card {
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Navigation ---------- */
+.dark-theme .main-nav a:hover {
+    background-color: #5D6973;
+}
+
+/* ---------- Buttons ---------- */
+.dark-theme .button,
+.dark-theme .main-nav a.active,
+.dark-theme .back-to-top {
+    color: #262D34;
+    background-color: #F0C283;
+    border-color: #F0C283;
+    box-shadow: 0 8px 18px rgba(240, 194, 131, 0.2);
+}
+
+.dark-theme .button:hover {
+    background-color: #F8E3C4;
+    border-color: #F8E3C4;
+}
+
+.dark-theme .theme-button {
+    color: #F0C283;
+    border-color: #F0C283;
+}
+
+.dark-theme .theme-button::before {
+    content: "\2600";
+}
+
+.dark-theme .theme-button:hover {
+    color: #262D34;
+    background-color: #F0C283;
+}
+
+.dark-theme .view-button {
+    color: #DCA7A1;
+    background-color: transparent;
+    border-color: #DCA7A1;
+}
+
+/* ---------- Home hero and page banners ---------- */
+.dark-theme .hero,
+.dark-theme main section.page-banner {
+    background-color: #DCA7A1;
+}
+
+/* Home only: a see-through layer of the banner colour over the stamp makes it softer */
+.dark-theme .hero {
+    background-image: linear-gradient(rgba(220, 167, 161, 0.5), rgba(220, 167, 161, 0.5)), url("../images/stamp-hero.png");
+    background-size: auto, auto;
+    background-position: 0 0, left -560px bottom -560px;
+    background-repeat: no-repeat;
+}
+
+.dark-theme .hero h1,
+.dark-theme .page-banner h1,
+.dark-theme .hero-kicker,
+.dark-theme .hero-rest,
+.dark-theme .page-banner,
+.dark-theme .page-banner a,
+.dark-theme .breadcrumb {
+    color: #262D34;
+}
+
+/* Handwritten notes on the banners */
+.dark-theme .hero-script,
+.dark-theme .page-note {
+    color: #F8E3C4;
+    text-shadow: 3px 3px 0 #CF6E6C;
+}
+
+.dark-theme .hero-image {
+    box-shadow: 16px 16px 0 #A85452, 0 18px 40px rgba(38, 45, 52, 0.25);
+}
+
+/* The "Join us" button is dark so it stands out on the pink hero */
+.dark-theme .hero .button {
+    color: #F0C283;
+    background-color: #262D34;
+    border-color: #262D34;
+    box-shadow: 0 8px 18px rgba(38, 45, 52, 0.3);
+}
+
+/* ---------- Offering hover details (Home) ---------- */
+.dark-theme .offering-details {
+    color: #262D34;
+    background-color: #DCA7A1;
+}
+
+/* ---------- Member reviews: Oat Milk section with Love Potion cards ---------- */
+.dark-theme .reviews,
+.dark-theme .review-panel {
+    background-color: #F8E3C4;
+}
+
+.dark-theme .reviews h2,
+.dark-theme .reviews .section-intro {
+    color: #262D34;
+}
+
+.dark-theme .section-note {
+    color: #CF6E6C;
+    text-shadow: 2px 2px 0 #262D34;
+}
+
+.dark-theme .review {
+    color: #FFF6EA;
+    background-color: #CF6E6C;
+    box-shadow: 0 12px 26px rgba(38, 45, 52, 0.22);
+}
+
+.dark-theme .review::before {
+    color: #5D6973;
+}
+
+.dark-theme .review .stars,
+.dark-theme .review .review-rating,
+.dark-theme .review-name {
+    color: #FFF6EA;
+}
+
+.dark-theme .review-photo {
+    border-color: #F8E3C4;
+}
+
+.dark-theme .review-header p.review-offering {
+    color: #262D34;
+    background-color: #F8E3C4;
+}
+
+/* ---------- Tags and status labels ---------- */
+/* Skill level tags in a deeper Love Potion, with light text */
+.dark-theme .catalog .offering-card .offering-level {
+    color: #FFF6EA;
+    background-color: #B85C5A;
+}
+
+.dark-theme .status {
+    color: #262D34;
+}
+
+/* ---------- Polaroid photos stay light, like printed photos ---------- */
+.dark-theme .gallery-list .photo,
+.dark-theme .story-photo {
+    color: #36404A;
+    background-color: #F8E3C4;
+}
+
+.dark-theme .photo-caption strong,
+.dark-theme .story-photo p {
+    color: #CF6E6C;
+}
+
+/* ---------- Form fields ---------- */
+.dark-theme .catalog-tools input[type="search"],
+.dark-theme .catalog-tools select,
+.dark-theme .form-panel input,
+.dark-theme .form-panel select,
+.dark-theme .form-panel textarea,
+.dark-theme .team-form input,
+.dark-theme .team-form textarea,
+.dark-theme .offering-form input,
+.dark-theme .offering-form textarea,
+.dark-theme .image-upload {
+    color: #F8E3C4;
+    background-color: #262D34;
+    border-color: #5D6973;
+}
+
+/* ---------- Tables ---------- */
+.dark-theme th,
+.dark-theme .team-table th {
+    color: #262D34;
+    background-color: #DCA7A1;
+}
+
+.dark-theme th,
+.dark-theme td,
+.dark-theme .team-table td {
+    border-color: #5D6973;
+}
+
+/* ---------- Star rating (Offering Evaluation) ---------- */
+.dark-theme .rating-stars label {
+    color: #5D6973;
+}
+
+.dark-theme .rating-stars input:checked ~ label,
+.dark-theme .rating-stars label:hover,
+.dark-theme .rating-stars label:hover ~ label {
+    color: #F0C283;
+}
+
+/* ---------- Small details ---------- */
+.dark-theme .info-page > h2::after {
+    background-color: #DCA7A1;
+}
+
+/* ---------- Footer ---------- */
+.dark-theme .site-footer {
+    background-color: #1D2228;
+}
+
+.dark-theme .site-footer h2,
+.dark-theme .site-footer a,
+.dark-theme .footer-clock {
+    color: #DCA7A1;
+}
+
+.dark-theme .copyright {
+    border-top-color: #5D6973;
+}
+
+/* ---------- Phones: no stamp behind the hero text, as in the light theme ---------- */
+@media screen and (max-width: 768px) {
+    .dark-theme .hero {
+        background-image: none;
+    }
+}

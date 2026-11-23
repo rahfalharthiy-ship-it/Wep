@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add a New Offering | Crumbs After Class</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Header and navigation bar (shared across all pages) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Crumbs After Class logo" class="brand-logo">
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="club-offerings.html" >Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                <li><a href="manager-dashboard.html" class="active">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page Heading -->
+        <section class="page-banner">
+            <p class="breadcrumb">
+                <a href="index.html">Home</a>
+                &gt;
+                <a href="manager-dashboard.html">Manager Dashboard</a>
+                &gt;
+                Add a New Offering
+            </p>
+
+            <h1>Add a New Offering</h1>
+        </section>
+
+        <!-- Form and Preview -->
+        <div class="add-offering-content">
+
+            <div class="offering-layout">
+
+				<!-- Offering Form -->
+				<form class="offering-form" id="offering-form">
+
+					<div class="form-group">
+						<label for="offering-name">Offering Name</label>
+						<input type="text" id="offering-name" name="offering-name">
+					</div>
+
+					<div class="form-group">
+						<label for="offering-price">Price (SAR)</label>
+						<input type="number" id="offering-price" name="offering-price">
+					</div>
+
+					<div class="form-group">
+						<label for="offering-description">Description</label>
+						<textarea id="offering-description" name="offering-description"></textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="offering-image">Image</label>
+
+						<div class="image-upload">
+							<input type="file" id="offering-image" name="offering-image">
+							<span>Choose an image for your offering</span>
+						</div>
+					</div>
+
+					<button type="submit" class="button submit-button">
+						Submit
+					</button>
+
+				</form>
+
+
+                <!-- Live Offering Preview -->
+                <div class="offering-preview">
+
+                    <h2>Offering Preview</h2>
+
+                    <article class="preview-card">
+
+                        <img
+                            src="images/first-loaf.jpg"
+                            alt="Offering preview"
+                            class="preview-image"
+                            id="preview-image">
+
+                        <h3 id="preview-name">Offering name</h3>
+
+                        <p class="preview-price" id="preview-price">
+                            Price
+                        </p>
+
+                        <p class="preview-description" id="preview-description">
+                            Description
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer (shared across all pages) -->
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+        <img src="images/logo-footer.png" alt="Crumbs After Class logo" class="footer-logo">
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+        <p class="copyright">&copy; 2026 Crumbs After Class</p>
+    </footer>
+	
+<script>
+
+    // Get the offering form
+    let offeringForm = document.getElementById("offering-form");
+
+    // Get the form inputs
+    let nameInput = document.getElementById("offering-name");
+    let priceInput = document.getElementById("offering-price");
+    let descriptionInput = document.getElementById("offering-description");
+    let imageInput = document.getElementById("offering-image");
+
+    // Update the offering name preview
+    nameInput.onchange = function() {
+        document.getElementById("preview-name").innerHTML = nameInput.value;
+    };
+
+    // Update the offering price preview
+    priceInput.onchange = function() {
+        document.getElementById("preview-price").innerHTML = priceInput.value + " SAR";
+    };
+
+    // Update the offering description preview
+    descriptionInput.onchange = function() {
+        document.getElementById("preview-description").innerHTML = descriptionInput.value;
+    };
+
+
+    // Check the form when the Submit button is clicked
+    offeringForm.onsubmit = function() {
+
+        // Get the values entered by the user
+        let name = nameInput.value;
+        let price = priceInput.value;
+        let description = descriptionInput.value;
+
+        // Get the selected image file
+        let imageFile = imageInput.files[0];
+
+
+        // Check if any field is empty
+        if (name == "" || price == "" || description == "" || !imageFile) {
+
+            // Display an alert message
+            alert("Please fill in all fields.");
+
+            // Stop the form from being submitted
+            return false;
+        }
+
+
+        // Check if the offering name starts with a number
+        if (!isNaN(name.charAt(0))) {
+
+            alert("Offering name cannot start with a number.");
+
+            return false;
+        }
+
+
+        // Check if the price is a number
+        if (isNaN(price)) {
+
+            alert("Price must be a number.");
+
+            return false;
+        }
+
+
+        // Read the selected image
+        let reader = new FileReader();
+
+        reader.onload = function() {
+
+            // Get the saved offerings from localStorage
+            let savedOfferings = localStorage.getItem("offerings");
+
+            let offerings;
+
+            if (savedOfferings == null) {
+
+                offerings = [];
+
+            } else {
+
+                offerings = JSON.parse(savedOfferings);
+
+            }
+
+
+            // Create a new offering object
+            let newOffering = {
+                name: name,
+                price: price,
+                description: description,
+                image: reader.result,
+                status: "Active"
+            };
+
+
+            // Add the new offering to the array
+            offerings.push(newOffering);
+
+
+            // Save all offerings in localStorage
+            localStorage.setItem("offerings", JSON.stringify(offerings));
+
+
+            // Display a success message
+            alert(name + " has been added successfully!");
+
+
+            // Clear the form inputs
+            nameInput.value = "";
+            priceInput.value = "";
+            descriptionInput.value = "";
+            imageInput.value = "";
+
+
+            // Reset the preview
+            document.getElementById("preview-name").innerHTML = "Offering name";
+            document.getElementById("preview-price").innerHTML = "Price";
+            document.getElementById("preview-description").innerHTML = "Description";
+
+        };
+
+
+        // Convert the image into a Data URL
+        reader.readAsDataURL(imageFile);
+
+
+        // Stop the form from being submitted
+        return false;
+
+    };
+
+</script>
+
+</body>
+</html>
+

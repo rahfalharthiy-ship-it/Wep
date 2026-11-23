@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page settings and CSS connection -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request to Join an Offering | Crumbs After Class</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <!-- Website logo and navigation menu -->
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <img src="images/logo.png"
+                 alt="Crumbs After Class logo"
+                 class="brand-logo">
+
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="club-offerings.html">Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li>
+                    <a href="member-dashboard.html" class="active">
+                        Member Dashboard
+                    </a>
+                </li>
+                <li><a href="manager-dashboard.html">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+
+        <!-- Page title and breadcrumb navigation -->
+        <section class="page-banner">
+            <p class="breadcrumb">
+                <a href="index.html">Home</a> &gt;
+                <a href="member-dashboard.html">Member Dashboard</a> &gt;
+                Request to join
+            </p>
+
+            <h1>Request to Join an Offering</h1>
+
+            <p class="page-intro">
+                Choose your preferred baking session and date.
+            </p>
+        </section>
+
+        <div class="page-content">
+
+            <!-- Form and offering details displayed side by side -->
+            <div class="form-layout">
+
+                <!-- Participation request form -->
+                <form class="form-panel" action="#" method="get" id="requestForm" novalidate>
+                 <div id="requestList"></div>
+                    <!-- Member's full name -->
+                    <label for="fullname">Full name</label>
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                    <!-- Drop-down list for selecting an offering -->
+                    <label for="offering">Offering</label>
+                    <select id="offering" name="offering" required>
+
+                        <option value="">Select an offering</option>
+
+                        <option value="Cinnamon Roll Night">
+                            Cinnamon Roll Night
+                        </option>
+
+                    </select>
+
+                    <!-- Member's preferred participation date -->
+                    <label for="date">Preferred date</label>
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required
+                    >
+
+                    <!-- Submit the participation request form -->
+                    <button type="submit" class="button">
+                        Submit request
+                    </button>
+
+                    <!-- Return to the member dashboard -->
+                    <a href="member-dashboard.html" class="back-link">
+                        Back to Member Dashboard
+                    </a>
+
+                </form>
+              
+                
+                <!-- Selected offering information card -->
+                <aside class="offering-summary">
+
+                    <span>Selected offering</span>
+
+                    <!-- Offering image -->
+                    <div class="summary-image">
+                        <img
+                            src="images/cinnamon-Rolls.jpg"
+                            alt="Cake Decorating Basics"
+                        >
+                    </div>
+
+                    <!-- Offering details -->
+                    <h2>Cinnamon Roll Night</h2>
+
+                    <p>
+                        Price: 80 SAR<br>
+                        Instructor: Aroub Alawad<br>
+                        Level: Beginner
+                    </p>
+
+                    <p>
+                        Learn new baking skills with other students.
+                    </p>
+
+                </aside>
+
+            </div>
+        </div>
+
+    </main>
+    
+     <script>
+    const requestForm = document.getElementById("requestForm");
+    const requestList = document.getElementById("requestList");
+
+    let newRequests = [];
+
+    requestForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("fullname").value.trim();
+    const offering = document.getElementById("offering").value;
+    const date = document.getElementById("date").value;
+
+    const errors = [];
+
+    // Check offering selection
+    if (offering === "") {
+        errors.push("Please select an offering.");
+    }
+
+    // Check full name
+    const namePattern = /^[\p{L}]+(?:[ '-][\p{L}]+)+$/u;
+
+    if (!namePattern.test(name)) {
+        errors.push("Please enter your full name using letters only.");
+    }
+
+    // Check future date
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const selectedDate = date ? new Date(date + "T00:00:00") : null;
+
+    if (!date || selectedDate <= today) {
+        errors.push("Preferred date must be a future date.");
+    }
+
+    // Display validation errors
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return;
+    }
+
+    // Confirmation message
+    const stay = confirm(
+        "Your request has been sent successfully!\n\n" +
+        "Do you want to stay on this page?\n" +
+        "Click OK to stay or Cancel to return to Dashboard."
+    );
+
+    if (stay) {
+        const request = {
+            offering: offering,
+            name: name,
+            date: date
+        };
+
+        newRequests.push(request);
+
+        displayRequests();
+
+        requestForm.reset();
+    } else {
+        window.location.href = "member-dashboard.html";
+    }
+    });
+
+   // Display all temporary requests
+   function displayRequests() {
+    requestList.innerHTML = "<h2>My New Requests</h2>";
+
+    newRequests.forEach(function(request) {
+        requestList.innerHTML += `
+            <div class="request-item">
+                <p><strong>Offering:</strong> ${escapeHTML(request.offering)}</p>
+                <p><strong>Member Name:</strong> ${escapeHTML(request.name)}</p>
+                <p><strong>Preferred Date:</strong> ${escapeHTML(request.date)}</p>
+            </div>
+        `;
+    });
+    }
+
+    // Prevent user input from being interpreted as HTML
+    function escapeHTML(value) {
+    const div = document.createElement("div");
+    div.textContent = value;
+    return div.innerHTML;
+     }
+    </script>
+    
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+
+        <!-- Contact information -->
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+
+        <!-- Website logo -->
+        <img
+            src="images/logo-footer.png"
+            alt="Crumbs After Class logo"
+            class="footer-logo"
+        >
+
+        <!-- Social media links section -->
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+
+        <!-- Copyright notice -->
+        <p class="copyright">
+            &copy; 2026 Crumbs After Class
+        </p>
+
+    </footer>
+
+</body>
+</html>

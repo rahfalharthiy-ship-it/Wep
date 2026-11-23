@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Activity Leaders & Instructors | Crumbs After Class</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+
+</head>
+
+<body>
+
+    
+    <!-- Header and navigation bar (shared across all pages) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Crumbs After Class logo" class="brand-logo">
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="club-offerings.html">Offerings</a></li>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                <li><a href="manager-dashboard.html" class="active">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <section class="page-banner">
+            <p class="breadcrumb">
+                <a href="index.html">Home</a> &gt;
+                <a href="manager-dashboard.html">Manager Dashboard</a> &gt;
+                Manage Activity Leaders &amp; Instructors
+            </p>
+
+            <h1>Manage Activity Leaders &amp; Instructors</h1>
+        </section>
+
+
+        <section class="team-content">
+
+            <div class="team-layout">
+
+                <!-- Current Team Members -->
+                <div class="team-panel">
+
+                    <h2>Current Activity Leaders &amp; Instructors</h2>
+
+                    <form class="delete-form" action="manage-instructors.html" method="get">
+
+                    <div class="table-wrap">
+
+                        <table class="team-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Select</th>
+                                    <th>Name</th>
+                                    <th>Area of Expertise</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                       <input type="checkbox" name="selected-members"
+                                       value="lian" aria-label="Select Lian Alzahrani">
+                                    </td>
+                                  
+ 			 					    <td>
+                                     <div class="person-info">
+                                        <img class="person-image"
+                                             src="images/lian-alzahrani.jpg"
+                                             alt="Lian Alzahrani">
+                                         <span>Lian Alzahrani</span>
+                                     </div>
+                                    </td>
+									
+                                    <td>Pastry Chef</td>
+									
+                                     <td>
+                                     <a href="instructor-lian.html" class="view-button">View</a>
+                                     </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                       <input type="checkbox" name="selected-members"
+                                       value="aroub" aria-label="Select Aroub Alawad">
+                                    </td>
+                                 
+  								    <td>
+                                     <div class="person-info">
+                                        <img class="person-image"
+                                             src="images/aroub-alawad.jpg"
+                                             alt="Aroub Alawad">
+                                         <span>Aroub Alawad</span>
+                                     </div>
+                                    </td>
+  
+                                    <td>Head Baker</td>
+                             
+  							         <td>
+                                     <a href="instructor-aroub.html" class="view-button">View</a>
+                                     </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                     <input type="checkbox" name="selected-members"
+                                            value="rahaf" aria-label="Select Rahaf Alharthi">
+                                     </td>
+                                
+ 							       	<td>
+                                      <div class="person-info">
+                                        <img class="person-image"
+                                             src="images/rahaf-alharthi.jpg"
+                                             alt="Rahaf Alharthi">
+                                        <span>Rahaf Alharthi</span>
+                                      </div>
+       							   </td>
+  
+                                   <td>Cake Artist</td>
+                            
+ 							       <td>
+                                   <a href="instructor-rahaf.html" class="view-button">View</a>
+                                   </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <button class="button delete-button" type="submit">
+                        Delete Selected
+                    </button>
+
+                    </form>
+
+                </div>
+
+
+
+				<!-- Add New Team Member -->
+				<div class="team-panel">
+
+					<h2>Add a New Activity Leader or Instructor</h2>
+
+					<form class="team-form">
+
+						<div>
+							<label for="new-fullname">Full Name</label>
+							<input type="text" id="new-fullname" name="fullName">
+						</div>
+
+						<div>
+							<label for="new-image">Image</label>
+							<input type="file" id="new-image" name="image">
+						</div>
+
+						<div>
+							<label for="new-dob">Date of Birth</label>
+							<input type="date" id="new-dob" name="birthDate">
+						</div>
+
+						<div>
+							<label for="new-expertise">Area of Expertise</label>
+							<input type="text" id="new-expertise" name="expertise">
+						</div>
+
+						<div>
+							<label for="new-email">Email</label>
+							<input type="email" id="new-email" name="email">
+						</div>
+
+						<div class="full-width">
+							<label for="new-skills">Skills</label>
+							<input type="text" id="new-skills" name="skills">
+						</div>
+
+						<div class="full-width">
+							<label for="new-education">Education</label>
+							<input type="text" id="new-education" name="education">
+						</div>
+
+						<div class="full-width">
+							<button class="button submit-button" type="submit">
+								Add
+							</button>
+						</div>
+
+					</form>
+
+				</div>
+
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer (shared across all pages) -->
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+        <img src="images/logo-footer.png" alt="Crumbs After Class logo" class="footer-logo">
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+        <p class="copyright">&copy; 2026 Crumbs After Class</p>
+    </footer>
+
+
+<script>
+
+    // Get the delete form and add member form
+    let deleteForm = document.getElementsByClassName("delete-form")[0];
+    let teamForm = document.getElementsByClassName("team-form")[0];
+
+    // Get the table body
+    let teamTable = document.getElementsByClassName("team-table")[0];
+    let teamList = teamTable.getElementsByTagName("tbody")[0];
+
+
+    // Get the saved team members from localStorage
+    let savedMembers = localStorage.getItem("teamMembers");
+
+
+    // Create an array of objects for the current team members
+    let teamMembers;
+
+    if (savedMembers == null) {
+
+        teamMembers = [];
+
+        // Get the current members from the HTML table
+        let rows = teamList.getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+
+            let member = {
+
+                id: rows[i].getElementsByTagName("input")[0].value,
+
+                name: rows[i].getElementsByTagName("span")[0].innerHTML,
+
+                image: rows[i].getElementsByTagName("img")[0].getAttribute("src"),
+
+                expertise: rows[i].getElementsByTagName("td")[2].innerHTML,
+
+                profile: rows[i].getElementsByTagName("a")[0].getAttribute("href")
+
+            };
+
+            teamMembers.push(member);
+
+        }
+
+        // Save the current team members
+        localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
+
+    } else {
+
+        teamMembers = JSON.parse(savedMembers);
+
+    }
+
+
+    // Display all team members
+    function displayTeamMembers() {
+
+        teamList.innerHTML = "";
+
+        for (let i = 0; i < teamMembers.length; i++) {
+
+            let member = teamMembers[i];
+
+            teamList.innerHTML +=
+
+                '<tr>' +
+
+                    '<td>' +
+                        '<input type="checkbox" name="selected-members" value="' + member.id + '">' +
+                    '</td>' +
+
+                    '<td>' +
+                        '<div class="person-info">' +
+                            '<img class="person-image" src="' + member.image + '" alt="' + member.name + '">' +
+                            '<span>' + member.name + '</span>' +
+                        '</div>' +
+                    '</td>' +
+
+                    '<td>' + member.expertise + '</td>' +
+
+                    '<td>' +
+                        '<a href="' + (member.profile != "" ? member.profile : "#") + '" class="view-button">View</a>' +
+                    '</td>' +
+
+                '</tr>';
+
+        }
+
+    }
+
+
+    // Delete selected team members
+    deleteForm.onsubmit = function() {
+
+        // Get all checkboxes
+        let checkboxes = teamList.getElementsByTagName("input");
+
+        let selectedCount = 0;
+
+        // Count the selected checkboxes
+        for (let i = 0; i < checkboxes.length; i++) {
+
+            if (checkboxes[i].checked == true) {
+
+                selectedCount++;
+
+            }
+
+        }
+
+
+        // Check if no member is selected
+        if (selectedCount == 0) {
+
+            alert("Please select at least one person.");
+
+            return false;
+
+        }
+
+
+        // Ask the manager to confirm the delete action
+        let answer = confirm("Are you sure you want to delete the selected members?");
+
+
+        if (answer == true) {
+
+            // Remove selected members from the array
+            for (let i = teamMembers.length - 1; i >= 0; i--) {
+
+                for (let j = 0; j < checkboxes.length; j++) {
+
+                    if (checkboxes[j].checked == true &&
+                        teamMembers[i].id == checkboxes[j].value) {
+
+                        teamMembers.splice(i, 1);
+
+                        break;
+
+                    }
+
+                }
+
+            }
+
+
+            // Save the updated team members
+            localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
+
+
+            // Display the remaining team members
+            displayTeamMembers();
+
+        }
+
+        return false;
+
+    };
+
+
+    // Check the form when the Add button is clicked
+    teamForm.onsubmit = function() {
+
+        // Get the values entered by the manager
+        let name = document.getElementById("new-fullname").value;
+
+        let imageFile = document.getElementById("new-image").files[0];
+
+        let dob = document.getElementById("new-dob").value;
+
+        let expertise = document.getElementById("new-expertise").value;
+
+        let email = document.getElementById("new-email").value;
+
+        let skills = document.getElementById("new-skills").value;
+
+        let education = document.getElementById("new-education").value;
+
+
+        // Check if any field is empty
+        if (name == "" || !imageFile || dob == "" || expertise == "" ||
+            email == "" || skills == "" || education == "") {
+
+            alert("Please fill in all fields.");
+
+            return false;
+
+        }
+
+
+        // Read the selected image
+        let reader = new FileReader();
+
+
+        reader.onload = function() {
+
+            // Create a new team member object
+            let newMember = {
+
+                id: "member-" + new Date().getTime(),
+
+                name: name,
+
+                image: reader.result,
+
+                dob: dob,
+
+                expertise: expertise,
+
+                email: email,
+
+                skills: skills,
+
+                education: education,
+
+                profile: ""
+
+            };
+
+
+            // Add the new member to the array
+            teamMembers.push(newMember);
+
+
+            // Save the updated team members
+            localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
+
+
+            // Display all team members
+            displayTeamMembers();
+
+
+            // Display a success message
+            alert(name + " has been added successfully!");
+
+
+            // Clear the form
+            teamForm.reset();
+
+        };
+
+
+        // Convert the image into a Data URL
+        reader.readAsDataURL(imageFile);
+
+
+        return false;
+
+    };
+
+
+    // Display team members when the page loads
+    displayTeamMembers();
+
+</script>
+
+
+</body>
+</html>

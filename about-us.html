@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Page settings and CSS connection -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Crumbs After Class</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <!-- Website logo and navigation menu (shared across all pages) -->
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <img src="images/logo.png"
+                 alt="Crumbs After Class logo"
+                 class="brand-logo">
+            <span class="brand-name">Crumbs After Class</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="club-offerings.html">Offerings</a></li>
+
+                <!-- Highlight the current page -->
+                <li><a href="about-us.html" class="active">About us</a></li>
+
+                <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                <li><a href="manager-dashboard.html">Manager Dashboard</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+
+        <!-- Page title and breadcrumb navigation -->
+        <section class="page-banner">
+            <p class="breadcrumb">
+                <a href="index.html">Home</a> &gt; About Us
+            </p>
+            <h1>About Us <span class="page-note">The best club around!</span></h1>
+            <p class="page-intro">
+                Who we are, how we started, and the people who teach our sessions.
+            </p>
+        </section>
+
+        <section class="page-content info-page">
+
+            <!-- Mission statement -->
+            <div class="about-mission">
+                <h2>Our mission</h2>
+                <p>
+                    Crumbs After Class gives students a warm place to learn real
+                    baking after lectures, take home what they make, and meet
+                    people over a shared task.
+                </p>
+            </div>
+
+            <!-- Our story: image beside text -->
+            <h2>Our Story</h2>
+            <div class="about-story">
+                <div class="story-photo">
+                    <img src="images/hero-baking-session.jpg"
+                         alt="Students shaping dough together at a baking session">
+                    <p>where it all started</p>
+                </div>
+                <div class="story-text">
+                    <p>
+                        Crumbs After Class began as a small group of students
+                        baking together between classes. What started with one
+                        loaf of bread grew into a club where members learn new
+                        skills each term, from sourdough to laminated pastry.
+                    </p>
+                    <p>
+                        Today we run weekly sessions led by experienced bakers,
+                        and every member leaves with something they made
+                        themselves.
+                    </p>
+                    <div class="stats">
+                        <div class="stat"><strong>12</strong><span>Offerings this term</span></div>
+                        <div class="stat"><strong>4</strong><span>Instructors</span></div>
+                        <div class="stat"><strong>1</strong><span>Free first session</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet the team: instructor cards linking to the profile page -->
+            <h2>Meet the team <span class="section-note">our lovely bakers!</span></h2>
+            <p class="scroll-hint">scroll for more &rarr;</p>
+            <div class="offering-list team-list">
+
+                <article class="offering-card">
+                    <img src="images/aroub-alawad.jpg" alt="Photo of Aroub Alawad">
+                    <h3><a href="instructor-aroub.html">Aroub Alawad</a></h3>
+                    <p class="team-role">Head Baker</p>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/lian-alzahrani.jpg" alt="Photo of Lian Alzahrani">
+                    <h3><a href="instructor-lian.html">Lian Alzahrani</a></h3>
+                    <p class="team-role">Pastry Chef</p>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/sara-alessa.jpg" alt="Photo of Sara Alessa">
+                    <h3><a href="instructor-sara.html">Sara Alessa</a></h3>
+                    <p class="team-role">Club Manager &amp; Sourdough Specialist</p>
+                </article>
+
+                <article class="offering-card">
+                    <img src="images/rahaf-alharthi.jpg" alt="Photo of Rahaf Alharthi">
+                    <h3><a href="instructor-rahaf.html">Rahaf Alharthi</a></h3>
+                    <p class="team-role">Cake Artist</p>
+                </article>
+
+            </div>
+
+            <!-- Join our team: application form for new instructors -->
+            <h2>Join Our Team</h2>
+            <p class="section-intro">Are you a baker who would like to teach? Apply below.</p>
+
+            <form class="form-panel" id="join-form" action="#" method="get" novalidate>
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname"
+                               placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="photo">Photo</label>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                    </div>
+
+                    <div class="field">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" max="2008-12-31">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email"
+                               placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="expertise">Area of Expertise</label>
+                        <input type="text" id="expertise" name="expertise"
+                               placeholder="e.g. Baking">
+                    </div>
+
+                    <div class="field">
+                        <label for="skills">Skills</label>
+                        <input type="text" id="skills" name="skills"
+                               placeholder="e.g. Sourdough">
+                    </div>
+
+                    <div class="field full-row">
+                        <label for="education">Education</label>
+                        <input type="text" id="education" name="education"
+                               placeholder="e.g. Diploma in King Saud University">
+                    </div>
+
+                    <div class="full-row">
+                        <button type="submit" class="button">Submit</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <!-- Contact information, logo, and social media (shared across all pages) -->
+    <footer class="site-footer">
+
+        <div class="footer-contact">
+            <h2><a href="contact-us.html">Contact us</a></h2>
+            <p>Email: hello@crumbsafterclass.com</p>
+            <p>Phone: 011 000 0000</p>
+            <p>Location: King Saud University, Riyadh</p>
+        </div>
+
+        <img src="images/logo-footer.png"
+             alt="Crumbs After Class logo"
+             class="footer-logo">
+
+        <div class="footer-social">
+            <h2>Follow us</h2>
+            <p>Instagram</p>
+            <p>TikTok</p>
+            <p>X</p>
+        </div>
+
+        <p class="copyright">&copy; 2026 Crumbs After Class</p>
+
+    </footer>
+         </footer>
+
+    <!-- Join Our Team form validation (Phase 3) -->
+    <script>
+
+    let joinForm = document.getElementById("join-form");
+
+    joinForm.onsubmit = function () {
+
+        // Get the values entered by the user
+        let name = document.getElementById("fullname").value.trim();
+        let photoFile = document.getElementById("photo").files[0];
+        let dob = document.getElementById("dob").value;
+        let email = document.getElementById("email").value.trim();
+        let expertise = document.getElementById("expertise").value.trim();
+        let skills = document.getElementById("skills").value.trim();
+        let education = document.getElementById("education").value.trim();
+
+        // 1. Check that there are no empty fields
+        if (name == "" || !photoFile || dob == "" || email == "" ||
+            expertise == "" || skills == "" || education == "") {
+            alert("Please fill in all fields.");
+            return false;
+        }
+
+        // 2. The name cannot start with a number
+        if (name.charAt(0) >= "0" && name.charAt(0) <= "9") {
+            alert("Name cannot start with a number.");
+            return false;
+        }
+
+        // 3. The photo must be an image file
+        if (photoFile.type.indexOf("image/") != 0) {
+            alert("Photo must be an image file (for example .jpg or .png).");
+            return false;
+        }
+
+        // 4. The year of birth must be 2008 or earlier
+        let birthYear = parseInt(dob.substring(0, 4));
+        if (birthYear > 2008) {
+            alert("Year of birth must be 2008 or earlier.");
+            return false;
+        }
+
+        // The email format is checked by the email input type
+        if (!document.getElementById("email").checkValidity()) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        // The form is valid: confirmation message with the sender's name
+        alert("Thank you, " + name + "! Your application has been sent successfully.");
+        joinForm.reset();
+        return false;
+    };
+
+    </script>
+
+</body>
+</html>
+</body>
+</html>
